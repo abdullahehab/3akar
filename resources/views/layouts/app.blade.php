@@ -2,6 +2,20 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"></title>
+    {{Html::style('website/css/bootstrap.min.css')}}
+    <link href="" rel="stylesheet" />
+    {{Html::style('website/css/flexslider.css')}}
+    <link href="" rel="stylesheet" />
+    {{Html::style('website/css/style.css')}}
+    <link href="" rel="stylesheet" />
+    {{Html::style('website/css/font-awesome.min.css')}}
+    <link rel="stylesheet" href="">
+    {{Html::script('website/js/jquery.min.js')}}
+    <script src=""></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
 
     <title>3akar | @yield("title")</title>
 
@@ -68,7 +82,9 @@
 
         @yield('content')
     </div>
-
+    
+    {{Html::script('website/js/bootstrap.min.js')}}
+    {{Html::script('website/js/jquery.flexslider.js')}}
 
     @yield("footer ")
     <!-- Scripts -->
