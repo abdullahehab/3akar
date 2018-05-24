@@ -14,22 +14,16 @@
     {{Html::style('admin/dist/css/adminlte.min.css')}}
     <!-- iCheck -->
     {{Html::style('admin/plugins/iCheck/flat/blue.css')}}
-    <link rel="stylesheet" href="">
     <!-- Morris chart -->
     {{Html::style('admin/plugins/morris/morris.css')}}
-    <link rel="stylesheet" href="">
     <!-- jvectormap -->
     {{Html::style('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}
-    <link rel="stylesheet" href="">
     <!-- Date Picker -->
     {{Html::style('admin/plugins/datepicker/datepicker3.css')}}
-    <link rel="stylesheet" href="">
     <!-- Daterange picker -->
-    {{Html::style('admin/plugins/daterangepicker/daterangepicker-bs3.css')}}
-    <link rel="stylesheet" href="">
+    {{Html::style('admin/plugins/daterangepicker/daterangepicker-bs3.css')}} <link rel="stylesheet" href="">
     <!-- bootstrap wysihtml5 - text editor -->
-    {{Html::style('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}
-    <link rel="stylesheet" href="">
+    {{Html::style('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}<link rel="stylesheet" href="">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     @yield('header')
@@ -76,7 +70,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                            <img src="admin/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Brad Diesel
@@ -92,7 +86,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="admin/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     John Pierce
@@ -108,7 +102,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="admin/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Nora Silvester
@@ -163,7 +157,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-            <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            <img src="admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
             <span class="brand-text font-weight-light">AdminLTE 3</span>
         </a>
@@ -173,7 +167,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">Alexander Pierce</a>
@@ -634,7 +628,7 @@
                                             <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                                         </div>
                                         <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                                        <img class="direct-chat-img" src="admin/dist/img/user1-128x128.jpg" alt="message user image">
                                         <!-- /.direct-chat-img -->
                                         <div class="direct-chat-text">
                                             Is this template really for free? That's unbelievable!
@@ -650,7 +644,7 @@
                                             <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                                         </div>
                                         <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                                        <img class="direct-chat-img" src="admin/dist/img/user3-128x128.jpg" alt="message user image">
                                         <!-- /.direct-chat-img -->
                                         <div class="direct-chat-text">
                                             You better believe it!
@@ -666,7 +660,7 @@
                                             <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
                                         </div>
                                         <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                                        <img class="direct-chat-img" src="admin/dist/img/user1-128x128.jpg" alt="message user image">
                                         <!-- /.direct-chat-img -->
                                         <div class="direct-chat-text">
                                             Working with AdminLTE on a great new app! Wanna join?
@@ -682,7 +676,7 @@
                                             <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
                                         </div>
                                         <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                                        <img class="direct-chat-img" src="admin/dist/img/user3-128x128.jpg" alt="message user image">
                                         <!-- /.direct-chat-img -->
                                         <div class="direct-chat-text">
                                             I would love to.
@@ -699,7 +693,7 @@
                                     <ul class="contacts-list">
                                         <li>
                                             <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user1-128x128.jpg">
+                                                <img class="contacts-list-img" src="admin/dist/img/user1-128x128.jpg">
 
                                                 <div class="contacts-list-info">
                           <span class="contacts-list-name">
@@ -714,7 +708,7 @@
                                         <!-- End Contact Item -->
                                         <li>
                                             <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user7-128x128.jpg">
+                                                <img class="contacts-list-img" src="admin/dist/img/user7-128x128.jpg">
 
                                                 <div class="contacts-list-info">
                           <span class="contacts-list-name">
@@ -729,7 +723,7 @@
                                         <!-- End Contact Item -->
                                         <li>
                                             <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user3-128x128.jpg">
+                                                <img class="contacts-list-img" src="admin/dist/img/user3-128x128.jpg">
 
                                                 <div class="contacts-list-info">
                           <span class="contacts-list-name">
@@ -744,7 +738,7 @@
                                         <!-- End Contact Item -->
                                         <li>
                                             <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user5-128x128.jpg">
+                                                <img class="contacts-list-img" src="admin/dist/img/user5-128x128.jpg">
 
                                                 <div class="contacts-list-info">
                           <span class="contacts-list-name">
@@ -759,7 +753,7 @@
                                         <!-- End Contact Item -->
                                         <li>
                                             <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user6-128x128.jpg">
+                                                <img class="contacts-list-img" src="admin/dist/img/user6-128x128.jpg">
 
                                                 <div class="contacts-list-info">
                           <span class="contacts-list-name">
@@ -774,7 +768,7 @@
                                         <!-- End Contact Item -->
                                         <li>
                                             <a href="#">
-                                                <img class="contacts-list-img" src="dist/img/user8-128x128.jpg">
+                                                <img class="contacts-list-img" src="admin/dist/img/user8-128x128.jpg">
 
                                                 <div class="contacts-list-info">
                           <span class="contacts-list-name">
@@ -1129,7 +1123,7 @@
     {{Html::script('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}
     {{Html::script('admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}
     <!-- jQuery Knob Chart -->
-    {{Html::script(admin/'plugins/knob/jquery.knob.js')}}
+    {{Html::script('admin/plugins/knob/jquery.knob.js')}}
     <!-- daterangepicker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
     {{Html::script('admin/plugins/daterangepicker/daterangepicker.js')}}
