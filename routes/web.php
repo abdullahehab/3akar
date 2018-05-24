@@ -15,6 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+########################
+
+## Admin Routes ##
+
+########################
+
+Route::get('/adminpanel','adminController@index');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
