@@ -8,6 +8,6 @@ class adminController extends Controller
 {
     //index function to run base layout view of admin panel
     public function index(){
-        return view('admin.layouts.layouts');
+        return view('admin.home.index');
     }
 }
