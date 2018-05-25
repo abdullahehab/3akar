@@ -2,8 +2,11 @@
 
 namespace App\Http\Middleware;
 
+
+
 use Closure;
 use Illuminate\Support\Facades\Auth;
+
 
 class isUserAdmin
 {
@@ -17,7 +20,7 @@ class isUserAdmin
     public function handle($request, Closure $next)
     {
         if(Auth::user()->admin != 1){
-            return view('login');
+            return redirect('login');
         }
         return $next($request);
     }
