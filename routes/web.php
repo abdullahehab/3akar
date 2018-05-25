@@ -20,8 +20,10 @@ Route::get('/', function () {
 ## Admin Routes ##
 
 ########################
+Route::group(['middleware' => ['web','admin']] , function(){
+    Route::get('/adminpanel','adminController@index');
+});
 
-Route::get('/adminpanel','adminController@index');
 
 
 Auth::routes();
