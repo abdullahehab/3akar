@@ -55,7 +55,14 @@
                                     </li>
                                 </ul>
                             </li>
+
+                     {{-- Call directive is admin--}}
+                        @isAdmin
+                        <li><a href="{{url('adminpanel')}}" target="_blank">admin panel</a></li>
+                        @endif
                             @endguest
+
+
                     <div class="clear"></div>
                 </ul>
             </div>
