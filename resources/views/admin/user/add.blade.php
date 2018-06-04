@@ -32,6 +32,23 @@
         </div><!-- /.container-fluid -->
     </section>
 
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Add New User</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 @endsection
 
 @section("footer")
