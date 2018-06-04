@@ -56,10 +56,12 @@
                                 <th>created_at</th>
                                 <th>updated_at</th>
                                 <th>Role</th>
+                                <th>Options</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($user as $userInfo)
+
+                            @foreach($users as $userInfo)
                             <tr>
                                 <td>{{$userInfo->id}}</td>
                                 <td>{{$userInfo->name}}</td>
@@ -67,18 +69,24 @@
                                 <td>{{$userInfo->created_at}}</td>
                                 <td>{{$userInfo->updated_at}}</td>
                                 <td>{{$userInfo->admin == 1 ? "admin" : "user"}}</td>
-                                <td><a href="{{url('adminpanel/users/'.$userInfo->id.'/edit')}}" class="btn btn-info" role="button">Edit</a></td>
-                                <td><a href="{{url('adminpanel/users/'.$userInfo->id.'/delete')}}" class="btn btn-danger" role="button">Edit</a></td>
+                                <td>
+                                    <a href="{{url('adminpanel/users/'.$userInfo->id.'/edit')}}" class="btn btn-info" role="button">Edit</a>
+                                    <a href="{{url('adminpanel/users/'.$userInfo->id.'/delete')}}" class="btn btn-danger" role="button">Delete</a>
+                                </td>
+
                             </tr>
+                            @endforeach
 
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
-                                <th>CSS grade</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>created_at</th>
+                                <th>updated_at</th>
+                                <th>Role</th>
+                                <th>Options</th>
                             </tr>
                             </tfoot>
                         </table>
