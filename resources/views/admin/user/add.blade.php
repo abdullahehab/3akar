@@ -44,7 +44,10 @@
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                        @include('admin.user.form')
+                        <form class="form-horizontal" method="POST" action="{{ url('adminpanel/users) }}">
+                            @include('admin.user.form')
+                        </form>
+
 
                     </div>
                 </div>
