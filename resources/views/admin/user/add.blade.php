@@ -39,10 +39,13 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Add New User</h3>
+                        <h3 class="card-title">Register Form</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
+
+                        @include('admin.user.form')
+
                     </div>
                 </div>
             </div>
