@@ -174,7 +174,8 @@
                 </div>
             </div>
 
-           
+        @include('admin.layouts.nav')
+
         </div>
         <!-- /.sidebar -->
     </aside>
