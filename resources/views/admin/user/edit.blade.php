@@ -50,9 +50,10 @@
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                        <form class="form-horizontal" method="POST" action="{{ url('/adminpanel/users') }}">
+                        {!! Form::model($userEidt ,['route' => ['users.update' , $userEdit->id] ,'method' =>'PATCH']) !!}
                             @include('admin.user.form')
-                        </form>
+                        {!! Form::close() !!}
+
 
                     </div>
                 </div>
