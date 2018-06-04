@@ -22,6 +22,7 @@ Route::get('/', function () {
 ########################
 Route::group(['middleware' => ['web','admin']] , function(){
     Route::get('/adminpanel','adminController@index');
+    Route::resource('/adminpanel/users','userController');
 });
 
 
