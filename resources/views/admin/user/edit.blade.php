@@ -3,7 +3,7 @@
 @section('title')
 
     Edit
-    {{$uesr->name}}
+    {{$user->name}}
      Info
 
 @endsection
@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Edit {{$uesr->name}} Info</h1>
+                    <h1>Edit {{$user->name}} Info</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -29,7 +29,7 @@
                         <li class="breadcrumb-item"><a href="{{url ('/adminpanel/users')}}">Users Control</a>
                         <li class="breadcrumb-item active"><a href="{{url ('/adminpanel/users/'.$user->id.'/edit')}}">
                                 Edit
-                                {{$uesr->name}}
+                                {{$user->name}}
                                 Info
                             </a>
                     </ol>
