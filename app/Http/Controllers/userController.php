@@ -21,9 +21,9 @@ class userController extends Controller
     }
 
 
-    public function store(addUserRequsetAdmin $request , User $user)
+    public function store(addUserRequsetAdmin $request)
     {
-        $user->create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
