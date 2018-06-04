@@ -28,7 +28,7 @@ class userController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-         return redirect('adminpanel/users')->with('status', 'User Added Successfully!');
+         return redirect('/adminpanel/users')->with('status', 'User Added Successfully!');
 
     }
 
