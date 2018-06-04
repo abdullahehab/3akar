@@ -3,7 +3,7 @@
 @section('title')
 
     Edit
-    {{$user->name}}
+    {{$userEdit->name}}
      Info
 
 @endsection
@@ -21,15 +21,15 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Edit {{$user->name}} Info</h1>
+                    <h1>Edit {{$userEdit->name}} Info</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{url ('/adminpanel')}}">Home</a></li>
                         <li class="breadcrumb-item"><a href="{{url ('/adminpanel/users')}}">Users Control</a>
-                        <li class="breadcrumb-item active"><a href="{{url ('/adminpanel/users/'.$user->id.'/edit')}}">
+                        <li class="breadcrumb-item active"><a href="{{url ('/adminpanel/users/'.$userEdit->id.'/edit')}}">
                                 Edit
-                                {{$user->name}}
+                                {{$userEdit->name}}
                                 Info
                             </a>
                     </ol>
@@ -50,7 +50,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                        {!! Form::model($userEidt ,['route' => ['users.update' , $userEdit->id] ,'method' =>'PATCH']) !!}
+                        {!! Form::model($userEdit ,['route' => ['users.update' , $userEdit->id] ,'method' =>'PATCH']) !!}
                             @include('admin.user.form')
                         {!! Form::close() !!}
 
