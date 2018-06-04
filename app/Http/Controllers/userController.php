@@ -43,7 +43,7 @@ class userController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.user.add' , compact('user'));
+        return view('admin.user.edit' , compact('user'));
     }
 
 
