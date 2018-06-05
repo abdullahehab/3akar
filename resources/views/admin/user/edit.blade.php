@@ -74,7 +74,7 @@
 
                         {!! Form::open(['url' => url('adminpanel/user/changepassword/') ,'method' =>'post']) !!}
 
-                        <input type="hidden" value="{{$userEdit->id}}">
+                        <input type="hidden" value="{{$userEdit->id}}" name="userID">
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label for="password" class="col-md-4 control-label">Password</label>
