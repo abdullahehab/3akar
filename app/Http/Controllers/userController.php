@@ -51,12 +51,20 @@ class userController extends Controller
     {
         $userUpdate = User::find($id);
         $userUpdate->fill($request->all())->save();
-        return redirect('/adminpanel/users')->with('status', 'User updated Successfully!');
+        return redirect()->back()->with('success','User updated Successfully!');
     }
 
+    public function updatePassword(Request $request){
+        $userUpdatepassword = User::find($request->userID);
+        $password   =   bcrypt($request->Password);
+        $userUpdatepassword->fill(['password' => $password])->save();
+        return redirect('/adminpanel/users')->with('status', 'Password updated Successfully!');
+    }
 
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        return redirect('adminPanel/users')->with('User Deleted successfully');
+
     }
 }
