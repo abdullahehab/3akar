@@ -49,7 +49,9 @@ class userController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $userUpdate = User::find($id);
+        $userUpdate->fill($request->all())->save();
+        return redirect('/adminpanel/users')->with('status', 'User updated Successfully!');
     }
 
 
