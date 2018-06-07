@@ -44,9 +44,10 @@
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                        <form class="form-horizontal" method="POST" action="{{ url('/adminpanel/users') }}">
-                            @include('admin.user.form')
-                        </form>
+                            {!! Form::open(['url' => url('/adminpanel/users') ,'method' =>'post']) !!}
+                              @include('admin.user.form')
+                            {!! Form::close() !!}
+
 
                     </div>
                 </div>
