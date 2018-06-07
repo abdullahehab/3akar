@@ -23,6 +23,10 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web','admin']] , function(){
     Route::get('/adminpanel','adminController@index');
     Route::resource('/adminpanel/users','userController');
+    Route::get('adminpanel/users/{id}/delete', 'userController@destroy'); // w da b2a b el resouce
+    Route::post('adminpanel/users/changepassword', 'userController@updatePassword');
+
+
 });
 
 
