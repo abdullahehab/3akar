@@ -3,6 +3,6 @@
 
 @section('content')
 
-    this is index page
+    Welcome To Admin Panel Dashboard
 
 @endsection
