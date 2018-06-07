@@ -63,8 +63,9 @@ class userController extends Controller
 
     public function destroy($id)
     {
-        User::find($id)->delete();
-        return redirect('adminPanel/users')->with('User Deleted successfully');
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/adminpanel/users')->with('User Deleted successfully');
 
     }
 }
