@@ -84,8 +84,8 @@ class userController extends Controller
             })
             ->editColumn('control', function ($model) {
 
-                $all = '<a href="" class="btn btn-info" role="button">Edit</a>';
-                $all .= '<a  href="'.url('/adminpanel/users/'.$model->id.'/delete').'" class="btn btn-danger" role="button">Delete</a>';
+                $all = '<a href="'.url('/adminpanel/users/'.$model->id.'/edit').'" class="btn btn-info btn-default"><i class="fa fa-edit"></i></a>';
+                $all .= '<a  href="'.url('/adminpanel/users/'.$model->id.'/delete').'" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>';
                 return $all;
             })
             ->make(true);
