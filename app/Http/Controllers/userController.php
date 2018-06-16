@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\addUserRequsetAdmin;
+use Yajra\DataTables\DataTables;
 class userController extends Controller
 {
 
@@ -68,4 +69,27 @@ class userController extends Controller
         return redirect('/adminpanel/users')->with('User Deleted successfully');
 
     }
+
+    public function anyData()
+    {
+
+        return DataTables::of(User::all())
+            ->editColumn('name', function ($model){
+              return $model->name;
+            })
+
+            ->editColumn('admin', function ($model) {
+                return $model->admin == 0 ? 'User' : 'Admin';
+
+            })
+            ->editColumn('control', function ($model) {
+
+                $all = '<a href="" class="btn btn-info" role="button">Edit</a>';
+                $all .= '<a  href="'.url('/adminpanel/users/'.$model->id.'/delete').'" class="btn btn-danger" role="button">Delete</a>';
+                return $all;
+            })
+            ->make(true);
+     }
 }
+
+
