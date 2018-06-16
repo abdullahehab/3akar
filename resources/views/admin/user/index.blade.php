@@ -47,7 +47,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="data" class="table table-bordered table-hover">
+                        <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>ID</th>
@@ -120,7 +120,7 @@
 
     <script>
 
-        var table = $('#data').DataTable({
+        var table = $('#example2').DataTable({
            processing: true,
            serverSide: true,
            ajax: "/adminpanel/users/data",
@@ -129,8 +129,9 @@
                 {data: 'name',name: 'name'},
                 {data: 'email',name: 'email'},
                 {data: 'created_at',name: 'created_at'},
+                {data: 'updated_at',name: 'updated_at'},
                 {data: 'admin',name: 'admin'},
-                {data: 'control',name: ''},
+                {data: 'control',name: ''}
 
             ],
 
