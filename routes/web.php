@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 ########################
 Route::group(['middleware' => ['web','admin']] , function(){
+    Route::get('/adminpanel/users/data', ['as' => 'adminpanel.users.data' , 'uses' => 'userController@anyData']);
     Route::get('/adminpanel','adminController@index');
     Route::resource('/adminpanel/users','userController');
     Route::get('adminpanel/users/{id}/delete', 'userController@destroy'); // w da b2a b el resouce
