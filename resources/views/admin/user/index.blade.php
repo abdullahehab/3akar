@@ -47,7 +47,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="example2" class="table table-bordered table-hover">
+                        <table id="data" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>ID</th>
@@ -119,16 +119,59 @@
 
 
     <script>
-        $(function(){
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false
-            });
+
+        var table = $('#data').DataTable({
+           processing: true,
+           serverSide: true,
+           ajax: "/adminpanel/users/data",
+            columns:[
+                {data: 'id',name: 'id'},
+                {data: 'name',name: 'name'},
+                {data: 'email',name: 'email'},
+                {data: 'created_at',name: 'created_at'},
+                {data: 'admin',name: 'admin'},
+                {data: 'control',name: ''},
+
+            ],
+
+            "stateSave": false,
+            'responsive': true,
+            'order': [[0, 'desc']],
+            'pagingType': "full_numbers",
+            'aLengthMenu': [
+                [20, 50, 100, 200, -1],
+                [20, 50, 100, 200, "All"]
+            ],
+            iDisplayLength: 25,
+            fixedHeader: true,
+
+            'oTableTools': {
+               'aButtons': [
+
+                   {
+                       'eExtends': 'csv',
+                       'sButtonText': 'Excel File',
+                       'sCharSet': 'utf16le'
+                   },
+                   {
+                       'eExtends': 'copy',
+                       'sButtonText': 'Copy information'
+                   },
+                   {
+                       'eExtends': 'print',
+                       'sButtonText': 'print',
+                       'sCharSet': 'visible'
+                   }
+
+               ],
+
+                "sSwfPath": "{{Request::root()}}}/admin/customize/copy_csv_xls.swf"
+
+
+        }
+
         });
+
 
     </script>
 
