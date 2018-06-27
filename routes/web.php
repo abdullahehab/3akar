@@ -15,16 +15,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-########################
 
-## Admin Routes ##
-
-########################
 Route::group(['middleware' => ['web','admin']] , function(){
-    Route::get('/adminpanel','adminController@index');
-    Route::resource('/adminpanel/users','userController');
-    Route::get('adminpanel/users/{id}/delete', 'userController@destroy'); // w da b2a b el resouce
-    Route::post('adminpanel/users/changepassword', 'userController@updatePassword');
+
+        # admin panel prefix
+        Route::prefix('adminpanel')->group(function (){
+
+        #ajax data table route
+        Route::get('/users/data', ['as' => 'adminpanel.users.data' , 'uses' => 'userController@anyData']);
+
+        #admin panel route
+        Route::get('','adminController@index');
+
+        #users route
+        Route::get('users/{id}/delete', 'userController@destroy'); // w da b2a b el resouce
+        Route::resource('/users','userController');
+        Route::post('/users/changepassword', 'userController@updatePassword');
+
+        #site setting route
+        Route::get('/sitesetting', 'siteSettingController@index');
+        Route::post('/sitesetting', 'siteSettingController@store');
+    });
+
 
 
 });

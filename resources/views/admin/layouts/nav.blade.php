@@ -7,15 +7,15 @@
             <a href="#" class="nav-link active">
                 <i class="nav-icon fa fa-dashboard"></i>
                 <p>
-                    Dashboard
+                    Site Setting
                     <i class="right fa fa-angle-left"></i>
                 </p>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="./index.html" class="nav-link active">
+                    <a href="{{url('/adminpanel/sitesetting')}}" class="nav-link active">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Dashboard v1</p>
+                        <p>Main Settings</p>
                     </a>
                 </li>
                 <li class="nav-item">
