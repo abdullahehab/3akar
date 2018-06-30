@@ -29,4 +29,5 @@ function buStatus(){
         'مُفعل',
         'غير مُفعل'
     ];
+    return $array;
 }
