@@ -11,6 +11,10 @@ class buController extends Controller
         return view('admin.bu.index');
     }
 
+    public function create(){
+        return view('admin.bu.add');
+    }
+
 
     public function anyData()
     {
