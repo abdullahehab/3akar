@@ -30,7 +30,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{url ('/adminpanel')}}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{url ('/adminpanel/users')}}">Immovables Control</a>
+                        <li class="breadcrumb-item active"><a href="{{url ('/adminpanel/bu')}}">Immovables Control</a>
                     </ol>
                 </div>
             </div>
