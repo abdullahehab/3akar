@@ -22,3 +22,11 @@ function buRent(){
     ];
     return $array;
 }
+
+// Return array contain Status of builds and call it in form.blade.php
+function buStatus(){
+    $array = [
+        'مُفعل',
+        'غير مُفعل'
+    ];
+}
