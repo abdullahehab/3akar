@@ -17,7 +17,7 @@
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
 
-    <title>3akar | @yield("title")</title>
+    <title> {{getSetting()}} | @yield("title")</title>
 
     @yield("header")
 
