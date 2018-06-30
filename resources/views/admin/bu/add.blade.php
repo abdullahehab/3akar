@@ -2,7 +2,8 @@
 
 @section('title')
 
-    Add new User
+    Add new Immovables
+
 
 @endsection
 
@@ -19,13 +20,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Add User</h1>
+                    <h1>Add Immovables</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{url ('/adminpanel')}}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{url ('/adminpanel/users')}}">Users Control</a>
-                        <li class="breadcrumb-item active"><a href="{{url ('/adminpanel/users/create')}}">Add user</a>
+                        <li class="breadcrumb-item"><a href="{{url ('/adminpanel/bu')}}">Immovables Control</a>
+                        <li class="breadcrumb-item active"><a href="{{url ('/adminpanel/bu/create')}}">Add New Immovables</a>
                     </ol>
                 </div>
             </div>
@@ -39,13 +40,13 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Register Form</h3>
+                        <h3 class="card-title">New Immovables Form</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                            {!! Form::open(['url' => url('/adminpanel/users') ,'method' =>'post']) !!}
-                              @include('admin.user.form')
+                            {!! Form::open(['url' => url('/adminpanel/bu') ,'method' =>'post']) !!}
+                              @include('admin.bu.form')
                             {!! Form::close() !!}
 
 
