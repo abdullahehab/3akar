@@ -24,7 +24,7 @@ Route::group(['middleware' => ['web','admin']] , function(){
         #ajax data table route of users
         Route::get('/users/data', ['as' => 'adminpanel.users.data' , 'uses' => 'userController@anyData']);
         #ajax data table route of bu
-        Route::get('/users/bu', ['as' => 'adminpanel.bu.data' , 'uses' => 'buController@anyData']);
+        Route::get('/bu/data', ['as' => 'adminpanel.bu.data' , 'uses' => 'buController@anyData']);
 
         #admin panel route
         Route::get('','adminController@index');
