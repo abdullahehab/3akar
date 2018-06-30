@@ -21,8 +21,10 @@ Route::group(['middleware' => ['web','admin']] , function(){
         # admin panel prefix
         Route::prefix('adminpanel')->group(function (){
 
-        #ajax data table route
+        #ajax data table route of users
         Route::get('/users/data', ['as' => 'adminpanel.users.data' , 'uses' => 'userController@anyData']);
+        #ajax data table route of bu
+        Route::get('/users/bu', ['as' => 'adminpanel.bu.data' , 'uses' => 'buController@anyData']);
 
         #admin panel route
         Route::get('','adminController@index');
@@ -35,6 +37,9 @@ Route::group(['middleware' => ['web','admin']] , function(){
         #site setting route
         Route::get('/sitesetting', 'siteSettingController@index');
         Route::post('/sitesetting', 'siteSettingController@store');
+
+        #Bu routes
+        Route::resource('/bu','buController');
     });
 
 
