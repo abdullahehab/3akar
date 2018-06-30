@@ -19,7 +19,7 @@ class siteSettingController extends Controller
 
         foreach (array_except($request->toArray(), ['_token', 'submit']) as $key => $req) {
 
-             DB::table('SiteSetting')
+             DB::table('siteSetting')
                 ->where('namesetting', $key)
                 ->update(['value' => $req ]);
         }
