@@ -13,3 +13,12 @@ function buType(){
     ];
     return $array;
 }
+
+
+// Return array contain rent of builds and call it in form.blade.php
+function buRent(){
+    $array = [
+        'بيع', 'إيجار'
+    ];
+    return $array;
+}
