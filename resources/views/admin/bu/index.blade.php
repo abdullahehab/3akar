@@ -50,6 +50,7 @@
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Immovables Name</th>
                                 <th>Price</th>
                                 <th>Type</th>
@@ -81,6 +82,7 @@
                             </tbody>
                             <tfoot>
                             <tr>
+                                <th>ID</th>
                                 <th>Immovables Name</th>
                                 <th>Price</th>
                                 <th>Type</th>
@@ -121,14 +123,14 @@
         var table = $('#example2').DataTable({
            processing: true,
            serverSide: true,
-           ajax: "/adminpanel/users/data",
+           ajax: "/adminpanel/bu/data",
             columns:[
                 {data: 'id',name: 'id'},
-                {data: 'name',name: 'name'},
-                {data: 'email',name: 'email'},
+                {data: 'bu_name',name: 'bu_name'},
+                {data: 'bu_price',name: 'bu_price'},
+                {data: 'bu_type',name: 'bu_type'},
                 {data: 'created_at',name: 'created_at'},
-                {data: 'updated_at',name: 'updated_at'},
-                {data: 'admin',name: 'admin'},
+                {data: 'bu_status',name: 'bu_status'},
                 {data: 'control',name: ''}
 
             ],
