@@ -43,6 +43,12 @@ class buController extends Controller
         return view('admin.bu.edit' , compact('bu'));
     }
 
+    public function update($id, buRequest $request){
+        $updatedbu = bu::find($id);
+        $updatedbu->fill($request->all())->save();
+        return Redirect::back();
+    }
+
 
     public function anyData()
     {
