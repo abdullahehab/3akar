@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\bu;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\addUserRequsetAdmin;
@@ -66,6 +67,7 @@ class userController extends Controller
     {
         $user = User::find($id);
         $user->delete();
+        bu::where('$user_id', $id)->delete(); // To delete Bus of deleted user
         return redirect('/adminpanel/users')->with('User Deleted successfully');
 
     }
