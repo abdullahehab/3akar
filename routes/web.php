@@ -38,9 +38,9 @@ Route::group(['middleware' => ['web','admin']] , function(){
         Route::post('/sitesetting', 'siteSettingController@store');
 
         #Bu routes
-        Route::resource('/bu','buController');
         #ajax data table route of bu
-        Route::get('/bu/data', ['as' => 'adminpanel.bu.data' , 'uses' => 'buController@anyData']);
+        Route::get('/bu/data', ['as' => 'adminpanel.bu.data' , 'uses' => 'buController@anyData']); // leh da msh b3d el resource ely t7to
+        Route::resource('/bu','buController');
         Route::get('bu/{id}/delete', 'buController@destroy'); // w da b2a b el resouce
     });
 
