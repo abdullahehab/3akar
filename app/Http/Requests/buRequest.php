@@ -27,7 +27,7 @@ class buRequest extends FormRequest
             'bu_name'       =>  'required|min:5|max:100',
             'bu_price'      =>  'required',
             'bu_rent'       =>  'required|interget',
-            'bu_square'     =>  'required|min:5|max:100',
+            'bu_square'     =>  'required|min:2|max:100',
             'bu_type'       =>  'required|interget',
             'bu_small_des'  =>  'required|min:5|max:160',
             'bu_meta'       =>  'required|min:5|max:200',
