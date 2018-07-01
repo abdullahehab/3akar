@@ -38,6 +38,11 @@ class buController extends Controller
         return redirect('adminpanel/bu');
     }
 
+    public function edit($id){
+        $bu = bu::find($id);
+        return view('admin.bu.edit' , compact('bu'));
+    }
+
 
     public function anyData()
     {
