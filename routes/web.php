@@ -23,8 +23,7 @@ Route::group(['middleware' => ['web','admin']] , function(){
 
         #ajax data table route of users
         Route::get('/users/data', ['as' => 'adminpanel.users.data' , 'uses' => 'userController@anyData']);
-        #ajax data table route of bu
-        Route::get('/bu/data', ['as' => 'adminpanel.bu.data' , 'uses' => 'buController@anyData']);
+
 
         #admin panel route
         Route::get('','adminController@index');
@@ -40,6 +39,9 @@ Route::group(['middleware' => ['web','admin']] , function(){
 
         #Bu routes
         Route::resource('/bu','buController');
+        #ajax data table route of bu
+        Route::get('/bu/data', ['as' => 'adminpanel.bu.data' , 'uses' => 'buController@anyData']);
+        Route::get('bu/{id}/delete', 'buController@destroy'); // w da b2a b el resouce
     });
 
 
