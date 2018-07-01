@@ -44,7 +44,7 @@ class buController extends Controller
 
         return DataTables::of(bu::all())
             ->editColumn('bu_name', function ($model){
-                return $model->name;
+                return $model->bu_name;
             })
 
             ->editColumn('bu_status', function ($model) {
@@ -54,7 +54,7 @@ class buController extends Controller
 
             ->editColumn('bu_type', function ($model) {
                 $type = buType();
-                return $type[$model->type];
+                return $type[$model->bu_type];
 
             })
 
