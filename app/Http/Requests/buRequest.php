@@ -13,7 +13,7 @@ class buRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class buRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'bu_name'       =>  'required|min:5|max:100',
+            'bu_price'      =>  'required',
+            'bu_rent'       =>  'required|interget',
+            'bu_square'     =>  'required|min:5|max:100',
+            'bu_type'       =>  'required|interget',
+            'bu_small_des'  =>  'required|min:5|max:160',
+            'bu_meta'       =>  'required|min:5|max:200',
+            'bu_langtuide'  =>  'required',
+            'bu_latitude'   =>  'required',
+            'bu_large_dis'  =>  'required|min:5',
+            'bu_status'     =>  'required|interget',
+            'bu_rooms'      =>  'required|interget'
+
         ];
     }
 }
