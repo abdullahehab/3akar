@@ -49,6 +49,12 @@ class buController extends Controller
         return Redirect::back();
     }
 
+    public function destroy($id){
+        bu::find($id)->delete();
+        return redirect('adminpanel/bu');
+
+    }
+
 
     public function anyData()
     {
