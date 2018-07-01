@@ -7,7 +7,7 @@ use App\Http\Requests\buRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-
+use Yajra\DataTables\DataTables;
 class buController extends Controller
 {
     public function index(){
