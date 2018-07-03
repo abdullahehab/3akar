@@ -123,7 +123,7 @@
         var lastIdx = null;
 
 
-        $('#example2 thead th').each(function (){
+        $('#s thead th').each(function (){
            if($(this).index() < 5 && $(this).index != 3){
                var classname = $(this).index == 6  ? "date" : "dateslash";
                var title = $(this).html();
@@ -195,11 +195,11 @@
             // Styling for table
             initComplete: function()
             {
-               var r = $('#example2  tfoot tr'); //replace s to $
+               var r = $('#tableName  tfoot tr'); //replace s to $
                r.find('th').each(function(){
                    $(this).css('padding', 8);
                });
-               $('#example2 thead').append(r);
+               $('#tableName thead').append(r);
                $('$search_0').css('text-align', 'center');
             }
 
@@ -236,7 +236,7 @@
 
         });
 
-        $('#example2 tbody')
+        $('#tableName tbody')
             .on('mouseover', 'td', function () {
                 var colIdx = table.cell(this).index().column;
 
