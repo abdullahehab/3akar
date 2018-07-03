@@ -54,3 +54,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+/* User Routes*/
+#bu routers to show all builds
+Route::get('showall', 'buController@showAllEnable');
+
