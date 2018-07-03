@@ -120,6 +120,8 @@
 
     <script>
 
+        var lastIdx = null;
+
 
         $('#s thead th').each(function (){
            if($(this).index() < 5 && $(this).index != 3){
@@ -187,9 +189,73 @@
                 "sSwfPath": "{{Request::root()}}}/admin/customize/copy_csv_xls.swf"
 
 
-        }
+        },
+
+        //"dom":
+            // Styling for table
+            initComplete: function()
+            {
+               var r = $('#tableName  tfoot tr'); //replace s to $
+               r.find('th').each(function(){
+                   $(this).css('padding', 8);
+               });
+               $('#tableName thead').append(r);
+               $('$search_0').css('text-align', 'center');
+            }
+
 
         });
+
+        table.columns().eq(0).each(function (colIdx) {
+            $('input', table.columns(colIdx).header()).on('keyup change', function(){
+                table
+                    .column(colIdx)
+                    .search(this.value)
+                    .draw();
+            });
+            
+        });
+
+
+
+
+        table.columns().eq(0).each(function (colIdx) {
+            $('select', table.columns(colIdx).header()).on('change', function(){
+                table
+                    .column(colIdx)
+                    .search(this.value)
+                    .draw();
+            });
+
+
+        table.columns().eq(0).each(function (colIdx) {
+            $('select', table.columns(colIdx).header()).on('click', function(e){
+                    e.stopPropagation();
+            });
+
+
+        });
+
+        $('#tableName tbody')
+            .on('mouseover', 'td', function () {
+                var colIdx = table.cell(this).index().column;
+
+                if( colIdx !== lastIdx ){
+                    $( table.cells().nodes() ).removeClass('highlight');
+                    $ (table.column( colIdx ).nodes() ).addClass('highlight');
+                }
+            })
+            .on('mouseleave', function () {
+                $( table.cells().nodes() ).removeClass('highlight');
+            });
+                
+            });
+                
+
+
+
+
+
 
 
     </script>
