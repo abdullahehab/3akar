@@ -1,7 +1,7 @@
 @if(count($bu) > 0)
 
     {{-- Devide array to 4 items for each row --}}
-    @foreach(array_chunk($bu, 3) as $buu)
+    @foreach(array_chunk($bu, 4) as $buu)
         <div class="row">
             @foreach($buu as $b)
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
