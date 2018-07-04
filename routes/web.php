@@ -55,7 +55,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-/* User Routes*/
+/* Building Routes*/
 #bu routers to show all builds ( middleware('auth') ) to check user in login
-Route::get('showAllBuilding', 'buController@showAllEnable')->middleware('auth');
+Route::get('showAllBuilding', 'buController@showAllEnable');
+Route::get('forRentOrSale/{type}', 'buController@forRentOrSale');
+Route::get('type/{type}', 'buController@type');
+
+
 
