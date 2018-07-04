@@ -15,10 +15,20 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // create directive isAdmin to check user is admin or not
-        \Blade::if('isAdmin', function(){
-           return  auth()->check() && Auth::user()->admin == 1;
+        \Blade::if('isAdmin', function() {
+            return auth()->check() && Auth::user()->admin == 1;
+
+        });
+        // Create Directive isUser
+            \Blade::if('isUser', function(){
+                return  auth()->check() && Auth::user()->admin == 1;
+
+
         });
     }
+
+
+
 
     /**
      * Register any application services.
