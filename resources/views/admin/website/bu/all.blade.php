@@ -43,25 +43,39 @@
                     <div class="profile-usermenu">
                         <ul class="nav">
                             <li class="active">
-                                <a href="#">
+                                <a href="{{url('showAllBuilding')}}">
                                     <i class="glyphicon glyphicon-home"></i>
-                                    Overview </a>
+                                    All Buildings </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{url('forRentOrSale/1')}}">
                                     <i class="glyphicon glyphicon-user"></i>
-                                    Account Settings </a>
+                                    for Rent </a>
                             </li>
                             <li>
-                                <a href="#" target="_blank">
+                                <a href="{{url('forRentOrSale/0')}}">
                                     <i class="glyphicon glyphicon-ok"></i>
-                                    Tasks </a>
+                                    For Sale
+                                </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{url('type/0')}}">
                                     <i class="glyphicon glyphicon-flag"></i>
-                                    Help </a>
+                                    Flats
+                                </a>
                             </li>
+                            <li>
+                                <a href="{{url('type/2')}}">
+                                    <i class="glyphicon glyphicon-flag"></i>
+                                    Chalets
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url('type/1')}}">
+                                    <i class="glyphicon glyphicon-flag"></i>
+                                    villa </a>
+                            </li>
+
                         </ul>
                     </div>
                     <!-- END MENU -->
