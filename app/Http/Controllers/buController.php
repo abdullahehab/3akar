@@ -86,7 +86,7 @@ class buController extends Controller
 
     // Return all bu that is available
     public function showAllEnable(bu $bu){
-        $buAll = $bu->where('bu_status', 1)->orderBy('id', 'desc')->get();
+        $buAll = $bu->where('bu_status', 1)->orderBy('id', 'desc')->get()->toArray();
         return view('admin.website.bu.all' , compact('buAll'));
 
     }
