@@ -8,7 +8,7 @@
                     <span>Month Added : {{$b->created_at->month}}</span>
                     <span class="pull-right">{{$b->bu_price}}</span>
                     <div class="detail">
-                        <p>{{str_limit($b->bu_small_des, 65)}}</p>
+                        <p>{{str_limit($b->bu_name, 65)}}</p>
                         <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="dsadas" />
                         <a href="#" class="btn btn-info">Add To Cart</a>
                         <a href="#" class="btn btn-info">Detail</a>
