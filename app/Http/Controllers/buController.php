@@ -93,13 +93,20 @@ class buController extends Controller
 
     // Return building for rent or sale
     public function forRentOrSale($type, bu $bu){
-        $buAll = $bu->where('bu_status', 1)->where('bu_rent',$type)->paginate(15); ;
-        return view('admin.website.bu.all' , compact('buAll'));
+        if(in_array($type, ['1','0'])){ // to check opetation rent or sale such whereas sale = 1 & rent = 0
+            $buAll = $bu->where('bu_status', 1)->where('bu_rent',$type)->paginate(15); ;
+            return view('admin.website.bu.all' , compact('buAll'));
+        }else
+            return Redirect::back();
+
     }
 
     // Return type of build
     public function type($type, bu $bu){
-        $buAll = $bu->where('bu_status', 1)->where('bu_type',$type)->paginate(15);;
-        return view('admin.website.bu.all' , compact('buAll'));
+        if(in_array($type, ['1','0','2'])){ // to check builds flats or chalets and  Villa such whereas Villa = 1 , flats = 0 & chalets = 2
+            $buAll = $bu->where('bu_status', 1)->where('bu_type',$type)->paginate(15);;
+            return view('admin.website.bu.all' , compact('buAll'));
+        }else
+            return Redirect::back();
     }
 }
