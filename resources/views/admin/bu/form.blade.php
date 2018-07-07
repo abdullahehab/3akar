@@ -72,7 +72,7 @@
                             <label for="name" class="col-md-3 control-label">Country</label>
 
                             <div class="col-md-6">
-                                {!! Form::select('bu_place' , buCountry() , null , ['class' => "form-control"]) !!}
+                                {!! Form::select('bu_place' , buCountry() , null , ['class' => "form-control select2"]) !!}
 
                                 @if ($errors->has('bu_place'))
                                     <span class="help-block">
