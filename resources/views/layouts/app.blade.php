@@ -19,6 +19,10 @@
 
     <title> {{getSetting()}} | @yield("title")</title>
 
+    {{-- Select2 --}}
+    {!! Html::style('custom/select2/css/select2.css') !!}
+
+
     @yield("header")
 
 </head>
@@ -96,5 +100,15 @@
     {{Html::script('website/js/bootstrap.min.js')}}
     {{Html::script('website/js/jquery.flexslider.js')}}
     {{Html::script('website/js/responsive-nav.js')}}
+    {{--Select2 --}}
+    {!! Html::script('custom/select2/js/select2.js') !!}
+    <script type="text/javascript">
+
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+
+    </script>
 </body>
 </html>
