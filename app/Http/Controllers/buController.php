@@ -86,20 +86,20 @@ class buController extends Controller
 
     // Return all bu that is available
     public function showAllEnable(bu $bu){
-        $buAll = $bu->where('bu_status', 1)->orderBy('id', 'desc')->get()->toArray();
+        $buAll = $bu->where('bu_status', 1)->paginate(15);
         return view('admin.website.bu.all' , compact('buAll'));
 
     }
 
     // Return building for rent or sale
     public function forRentOrSale($type, bu $bu){
-        $buAll = $bu->where('bu_status', 1)->where('bu_rent',$type)->orderBy('id', 'desc')->get()->toArray();
+        $buAll = $bu->where('bu_status', 1)->where('bu_rent',$type)->paginate(15); ;
         return view('admin.website.bu.all' , compact('buAll'));
     }
 
     // Return type of build
     public function type($type, bu $bu){
-        $buAll = $bu->where('bu_status', 1)->where('bu_type',$type)->orderBy('id', 'desc')->get()->toArray();
+        $buAll = $bu->where('bu_status', 1)->where('bu_type',$type)->paginate(15);;
         return view('admin.website.bu.all' , compact('buAll'));
     }
 }
