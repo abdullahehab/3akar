@@ -27,23 +27,23 @@
                         {!! Form::open(['url' => 'search', 'action' => 'post']) !!}
                             <ul class="nav">
                                 <li>
-                                    {!! Form::text('price',null, ['class' => 'form-control', 'placeholder' => 'price of build']) !!}
+                                    {!! Form::text('bu_price',null, ['class' => 'form-control', 'placeholder' => 'price of build']) !!}
                                 </li>
 
                                 <li>
-                                    {!! Form::select('rooms',roomNumber(),null, ['class' => 'form-control', 'placeholder' => 'Number of rooms']) !!}
+                                    {!! Form::select('bu_rooms',roomNumber(),null, ['class' => 'form-control', 'placeholder' => 'Number of rooms']) !!}
                                 </li>
 
                                 <li>
-                                    {!! Form::select('type',buType(),null, ['class' => 'form-control', 'placeholder' => 'Type of Build']) !!}
+                                    {!! Form::select('bu_type',buType(),null, ['class' => 'form-control', 'placeholder' => 'Type of Build']) !!}
                                 </li>
 
                                 <li>
-                                    {!! Form::select('operation',buRent(),null, ['class' => 'form-control', 'placeholder' => 'Type of Operation']) !!}
+                                    {!! Form::select('bu_rent',buRent(),null, ['class' => 'form-control', 'placeholder' => 'Type of Operation']) !!}
                                 </li>
 
                                 <li>
-                                    {!! Form::text('square',null, ['class' => 'form-control', 'placeholder' => 'Square of Build']) !!}
+                                    {!! Form::text('bu_square',null, ['class' => 'form-control', 'placeholder' => 'Square of Build']) !!}
                                 </li>
 
                                 <li>
@@ -111,6 +111,12 @@
                 <div class="profile-content">
 
                     @include('admin.website.bu.shareFile',[ 'bu' => $buAll] )
+
+                    <div class="text-center">
+                        @if(!isset($search))
+                        {{ $buAll->appends(Request::except('page'))->links() }}
+                        @endif
+                    </div>
 
                 </div>
             </div>
