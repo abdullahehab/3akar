@@ -60,6 +60,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('showAllBuilding', 'buController@showAllEnable')->middleware('auth');
 Route::get('forRentOrSale/{type}', 'buController@forRentOrSale');
 Route::get('type/{type}', 'buController@type');
+Route::post('search', 'buController@search');
 
 
 
