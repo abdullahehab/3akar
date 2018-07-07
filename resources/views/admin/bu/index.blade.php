@@ -2,7 +2,7 @@
 
 @section('title')
 
-    Immovables Control
+    Builds Control
 
 @endsection
 
