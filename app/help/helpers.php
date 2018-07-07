@@ -31,3 +31,12 @@ function buStatus(){
     ];
     return $array;
 }
+
+// Return array contain Number of room and call it in form.blade.php
+function roomNumber(){
+    $array = [];
+    for($number = 2 ; $number <=40 ; $number++){
+        $array [] = $number;
+    }
+    return $array;
+}
