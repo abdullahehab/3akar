@@ -34,6 +34,7 @@ class buController extends Controller
             'bu_status'     =>  $burequest  ->  bu_status,
             'user_id'       => Auth::id(),
             'bu_rooms'      => $burequest   -> bu_rooms,
+            'bu_place'      => $burequest   ->bu_place,
         ];
         $bu->create($data);
         return redirect('adminpanel/bu');
