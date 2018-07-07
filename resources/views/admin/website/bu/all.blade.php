@@ -35,7 +35,7 @@
                                 </li>
 
                                 <li>
-                                    {!! Form::select('bu_place',buCountry(),null, ['class' => 'form-control', 'placeholder' => 'Country']) !!}
+                                    {!! Form::select('bu_place',buCountry(),null, ['class' => 'form-control select2', 'placeholder' => 'Country']) !!}
                                 </li>
 
 
