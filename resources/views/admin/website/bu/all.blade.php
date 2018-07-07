@@ -9,6 +9,11 @@
 @section('header')
 
     {!! Html::style('custom/buall.css') !!}
+    <style>
+        .itemSearch{
+            margin-bottom: 10px;
+        }
+    </style>
 
 @endsection
 
@@ -26,28 +31,28 @@
                     <div  class="profile-usermenu" style="padding: 10px;">
                         {!! Form::open(['url' => 'search', 'action' => 'post']) !!}
                             <ul class="nav">
-                                <li>
+                                <li class="itemSearch">
                                     {!! Form::text('bu_price',null, ['class' => 'form-control', 'placeholder' => 'price of build']) !!}
                                 </li>
 
-                                <li>
+                                <li class="itemSearch">
                                     {!! Form::select('bu_rooms',roomNumber(),null, ['class' => 'form-control', 'placeholder' => 'Number of rooms']) !!}
                                 </li>
 
-                                <li>
+                                <li class="itemSearch">
                                     {!! Form::select('bu_place',buCountry(),null, ['class' => 'form-control select2', 'placeholder' => 'Country']) !!}
                                 </li>
 
 
-                                <li>
+                                <li class="itemSearch">
                                     {!! Form::select('bu_type',buType(),null, ['class' => 'form-control', 'placeholder' => 'Type of Build']) !!}
                                 </li>
 
-                                <li>
+                                <li class="itemSearch">
                                     {!! Form::select('bu_rent',buRent(),null, ['class' => 'form-control', 'placeholder' => 'Type of Operation']) !!}
                                 </li>
 
-                                <li>
+                                <li class="itemSearch">
                                     {!! Form::text('bu_square',null, ['class' => 'form-control', 'placeholder' => 'Square of Build']) !!}
                                 </li>
 
