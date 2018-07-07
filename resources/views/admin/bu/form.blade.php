@@ -78,8 +78,9 @@
                                     <span class="help-block">
                                         <strong>{{ $errors->first('bu_place') }}</strong>
                                     </span>
-                                    @endif
+                                @endif
                             </div>
+                        </div>
 
                         <div class="form-group{{ $errors->has('bu_type') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-3 control-label">Type</label>
