@@ -6,6 +6,7 @@ use App\bu;
 use App\Http\Requests\buRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Yajra\DataTables\DataTables;
 class buController extends Controller
@@ -108,5 +109,45 @@ class buController extends Controller
             return view('admin.website.bu.all' , compact('buAll'));
         }else
             return Redirect::back();
+    }
+
+    public function search(Request $request){
+        $requestAll = array_except($request->toArray(),['submit' , '_token']);
+        $query = DB::table('bu')->select('*');
+        foreach ($requestAll as $key => $req){
+            if($req != ''){
+                $query->where($key , $req);
+            }
+        }
+        $buAll = $query->paginate(1);
+        return view('admin.website.bu.all' , compact('buAll'));
+
+
+        /*$buAll = $bu
+         ->where('bu_status', 1)
+         ->where('bu_type',$request->type)
+         ->where('bu_rent',$request->operation)
+         ->where('bu_square',$request->square)
+         ->where('bu_price',$request->price)
+         ->where('bu_rooms',$request->rooms)
+         ->paginate(15);
+         $buAll = DB::select($query);
+        $search = 'search';
+
+
+        In this code we can not paginate the resut
+        $out = '';
+        $i = 0;
+        foreach ($requestAll as $key => $value){
+            if($value != ''){
+                $where = $i == 0 ? " where ": ' and ';
+                $out .= $where . ' '. $bu->$key.' = ' .$value;
+                $i =2 ;
+            }
+        }
+
+        $query =   "select * from bu ". $out;
+        $buAll = DB::select($query);*/
+
     }
 }
