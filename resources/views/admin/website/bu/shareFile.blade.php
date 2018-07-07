@@ -10,7 +10,7 @@
                         <div class="my-list">
                             <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="dsadas" />
                             <h3>{{$b->bu_name}}</h3>
-                            <span>Month: {{$b->created_at->month}}</span> {{-- 6 is the index of month in array --}}
+                            <span>Month: {{$b->created_at}}</span> 
                             <span class="pull-right">{{$b->bu_price}}</span>
                             <div class="detail">
                                 <p>{{str_limit($b->bu_name, 65)}}</p>
