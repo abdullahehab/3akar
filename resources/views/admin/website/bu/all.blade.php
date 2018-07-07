@@ -35,6 +35,11 @@
                                 </li>
 
                                 <li>
+                                    {!! Form::select('bu_place',buCountry(),null, ['class' => 'form-control', 'placeholder' => 'Country']) !!}
+                                </li>
+
+
+                                <li>
                                     {!! Form::select('bu_type',buType(),null, ['class' => 'form-control', 'placeholder' => 'Type of Build']) !!}
                                 </li>
 
