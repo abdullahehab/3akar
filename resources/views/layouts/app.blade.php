@@ -19,6 +19,10 @@
 
     <title> {{getSetting()}} | @yield("title")</title>
 
+    {{-- Select2 --}}
+    {!! Html::style('custom/select2/css/select2.css') !!}
+
+
     @yield("header")
 
 </head>
@@ -28,6 +32,10 @@
             <div class="menu"> <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /> </a>
                 <ul class="nav" id="nav">
                     <li class="current"><a href="{{url('home')}}">Home</a></li>
+                    {{-- Call isUser Directive to check user is login --}}
+                    @isUser
+                    <li><a href="{{url('showAllBuilding')}}">All Buildings</a></li>
+                    @endif
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
@@ -56,11 +64,11 @@
                                 </ul>
                             </li>
 
-                     {{-- Call directive is admin--}}
-                        @isAdmin
-                        <li><a href="{{url('adminpanel')}}" target="_blank">admin panel</a></li>
-                        @endif
-                            @endguest
+                         {{-- Call directive is admin--}}
+                            @isAdmin
+                            <li><a href="{{url('adminpanel')}}" target="_blank">admin panel</a></li>
+                            @endif
+                    @endguest
 
 
                     <div class="clear"></div>
@@ -92,5 +100,15 @@
     {{Html::script('website/js/bootstrap.min.js')}}
     {{Html::script('website/js/jquery.flexslider.js')}}
     {{Html::script('website/js/responsive-nav.js')}}
+    {{--Select2 --}}
+    {!! Html::script('custom/select2/js/select2.js') !!}
+    <script type="text/javascript">
+
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+
+    </script>
 </body>
 </html>

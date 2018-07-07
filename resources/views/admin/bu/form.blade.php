@@ -68,6 +68,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('bu_place') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-3 control-label">Country</label>
+
+                            <div class="col-md-6">
+                                {!! Form::select('bu_place' , buCountry() , null , ['class' => "form-control select2"]) !!}
+
+                                @if ($errors->has('bu_place'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('bu_place') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('bu_type') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-3 control-label">Type</label>
 

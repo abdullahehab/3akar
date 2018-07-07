@@ -11,6 +11,7 @@
 
 @section("header")
 
+    {!! Html::style('custom/select2/css/select2.css') !!}
 
 @endsection
 
@@ -66,6 +67,17 @@
 @endsection
 
 @section("footer")
+
+    {!! Html::script('custom/select2/js/select2.js') !!}
+    <script type="text/javascript">
+
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+
+    </script>
+
 
 
 @endsection

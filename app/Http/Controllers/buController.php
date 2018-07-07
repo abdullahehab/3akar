@@ -6,6 +6,7 @@ use App\bu;
 use App\Http\Requests\buRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Yajra\DataTables\DataTables;
 class buController extends Controller
@@ -33,6 +34,7 @@ class buController extends Controller
             'bu_status'     =>  $burequest  ->  bu_status,
             'user_id'       => Auth::id(),
             'bu_rooms'      => $burequest   -> bu_rooms,
+            'bu_place'      => $burequest   ->bu_place,
         ];
         $bu->create($data);
         return redirect('adminpanel/bu');
@@ -86,8 +88,67 @@ class buController extends Controller
 
     // Return all bu that is available
     public function showAllEnable(bu $bu){
-        $buAll = $bu->where('bu_status', 1)->orderBy('id', 'desc')->get();
+        $buAll = $bu->where('bu_status', 1)->paginate(15);
         return view('admin.website.bu.all' , compact('buAll'));
+
+    }
+
+    // Return building for rent or sale
+    public function forRentOrSale($type, bu $bu){
+        if(in_array($type, ['1','0'])){ // to check opetation rent or sale such whereas sale = 1 & rent = 0
+            $buAll = $bu->where('bu_status', 1)->where('bu_rent',$type)->paginate(15); ;
+            return view('admin.website.bu.all' , compact('buAll'));
+        }else
+            return Redirect::back();
+
+    }
+
+    // Return type of build
+    public function type($type, bu $bu){
+        if(in_array($type, ['1','0','2'])){ // to check builds flats or chalets and  Villa such whereas Villa = 1 , flats = 0 & chalets = 2
+            $buAll = $bu->where('bu_status', 1)->where('bu_type',$type)->paginate(15);;
+            return view('admin.website.bu.all' , compact('buAll'));
+        }else
+            return Redirect::back();
+    }
+
+    public function search(Request $request){
+        $requestAll = array_except($request->toArray(),['submit' , '_token']);
+        $query = DB::table('bu')->select('*');
+        foreach ($requestAll as $key => $req){
+            if($req != ''){
+                $query->where($key , $req);
+            }
+        }
+        $buAll = $query->paginate(1);
+        return view('admin.website.bu.all' , compact('buAll'));
+
+
+        /*$buAll = $bu
+         ->where('bu_status', 1)
+         ->where('bu_type',$request->type)
+         ->where('bu_rent',$request->operation)
+         ->where('bu_square',$request->square)
+         ->where('bu_price',$request->price)
+         ->where('bu_rooms',$request->rooms)
+         ->paginate(15);
+         $buAll = DB::select($query);
+        $search = 'search';
+
+
+        In this code we can not paginate the resut
+        $out = '';
+        $i = 0;
+        foreach ($requestAll as $key => $value){
+            if($value != ''){
+                $where = $i == 0 ? " where ": ' and ';
+                $out .= $where . ' '. $bu->$key.' = ' .$value;
+                $i =2 ;
+            }
+        }
+
+        $query =   "select * from bu ". $out;
+        $buAll = DB::select($query);*/
 
     }
 }
