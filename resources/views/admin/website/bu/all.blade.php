@@ -16,14 +16,56 @@
 
     <div class="container">
         <div class="row profile">
+
+
             <div class="col-md-3">
                 <div class="profile-sidebar">
                   <h2 style="margin-left: 20px">
-                      Website Options
+                      Advanced Search
                   </h2>
+                    <div  class="profile-usermenu" style="padding: 10px;">
+                        {!! Form::open(['url' => 'search', 'action' => 'post']) !!}
+                            <ul class="nav">
+                                <li>
+                                    {!! Form::text('price',null, ['class' => 'form-control', 'placeholder' => 'price of build']) !!}
+                                </li>
+
+                                <li>
+                                    {!! Form::select('rooms',roomNumber(),null, ['class' => 'form-control', 'placeholder' => 'Number of rooms']) !!}
+                                </li>
+
+                                <li>
+                                    {!! Form::select('type',buType(),null, ['class' => 'form-control', 'placeholder' => 'Type of Build']) !!}
+                                </li>
+
+                                <li>
+                                    {!! Form::select('operation',buRent(),null, ['class' => 'form-control', 'placeholder' => 'Type of Operation']) !!}
+                                </li>
+
+                                <li>
+                                    {!! Form::text('square',null, ['class' => 'form-control', 'placeholder' => 'Square of Build']) !!}
+                                </li>
+
+                                <li>
+                                    {!! Form::submit('search', ['class' => 'banner_btn']) !!}
+                                </li>
+
+                            </ul>
+                        {!! form::close() !!}
+                    </div>
+                    <!-- END MENU -->
+                </div>
+
+                <br> {{-- Break line between two forms--}}
+
+
+                <div class="profile-sidebar">
+                    <h2 style="margin-left: 20px">
+                        Website Options
+                    </h2>
                     <div class="profile-usermenu">
                         <ul class="nav">
-                            <li class="active">
+                            <li>
                                 <a href="{{url('showAllBuilding')}}">
                                     <i class="glyphicon glyphicon-home"></i>
                                     All Buildings </a>
@@ -62,6 +104,8 @@
                     <!-- END MENU -->
                 </div>
             </div>
+
+
 
             <div class="col-md-9">
                 <div class="profile-content">
