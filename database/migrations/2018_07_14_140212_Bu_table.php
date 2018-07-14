@@ -26,6 +26,8 @@ class BUTable extends Migration
             $table->string('bu_latitude',50);
             $table->longText('bu_large_dis');
             $table->tinyInteger('bu_status');
+            $table->integer('bu_rooms');
+            $table->string('bu_place');
             $table->timestamps();
             $table->unsignedInteger('user_id');
 
