@@ -67,7 +67,7 @@ class userController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        bu::where('$user_id', $id)->delete(); // To delete Bus of deleted user
+        bu::where('user_id', $id)->delete(); // To delete Bus of deleted user
         return redirect('/adminpanel/users')->with('User Deleted successfully');
 
     }
