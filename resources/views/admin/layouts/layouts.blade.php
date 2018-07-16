@@ -242,6 +242,8 @@
     {{Html::script('admin/dist/js/pages/dashboard.js')}}
     <!-- AdminLTE for demo purposes -->
     {{Html::script('admin/dist/js/demo.js')}}
+{!! Html::script('https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js') !!}
+@include('sweetalert::alert')
 @yield('footer')
 </body>
 </html>
