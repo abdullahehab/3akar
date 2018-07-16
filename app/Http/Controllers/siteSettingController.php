@@ -19,11 +19,17 @@ class siteSettingController extends Controller
 
         foreach (array_except($request->toArray(), ['_token', 'submit']) as $key => $req) {
 
-             DB::table('siteSetting')
-                ->where('namesetting', $key)
-                ->update(['value' => $req ]);
+            $sitesetting = DB::table('siteSetting')
+                            ->where('namesetting', $key)
+                            ->update(['value' => $req ]);
+
+            if($sitesetting){
+                alert()->success('Site Setting Updated', 'Successfully');
+                return Redirect::back();
+            }
         }
-         return Redirect::back();
+
+
     }
 
 }

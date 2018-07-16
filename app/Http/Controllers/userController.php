@@ -26,12 +26,16 @@ class userController extends Controller
 
     public function store(addUserRequsetAdmin $request)
     {
-        User::create([
+        $newUser =  User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-         return redirect('/adminpanel/users')->with('status', 'User Added Successfully!');
+        if($newUser){
+            alert()->success('User Created', 'Successfully');
+            return redirect('/adminpanel/users');
+        }
+
 
     }
 
@@ -53,7 +57,10 @@ class userController extends Controller
     {
         $userUpdate = User::find($id);
         $userUpdate->fill($request->all())->save();
-        return redirect()->back()->with('success','User updated Successfully!');
+        if($userUpdate){
+            alert()->success('User Updated', 'Successfully');
+            return redirect('/adminpanel/users');
+        }
     }
 
     public function updatePassword(Request $request){
@@ -65,10 +72,12 @@ class userController extends Controller
 
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
+        $user = User::find($id)->delete();
         bu::where('user_id', $id)->delete(); // To delete Bus of deleted user
-        return redirect('/adminpanel/users')->with('User Deleted successfully');
+        if($user){
+        alert()->success('The member and its buildings have been deleted', 'Successfully');
+        return redirect('/adminpanel/users');
+       };
 
     }
 

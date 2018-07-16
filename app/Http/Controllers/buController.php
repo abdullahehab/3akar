@@ -37,7 +37,11 @@ class buController extends Controller
             'bu_place'      => $burequest   ->bu_place,
         ];
         $bu->create($data);
-        return redirect('adminpanel/bu');
+        if($bu){
+            alert()->success('Build Created', 'Successfully');
+            return redirect('adminpanel/bu');
+        }
+
     }
 
     public function edit($id){
@@ -48,13 +52,18 @@ class buController extends Controller
     public function update($id, buRequest $request){
         $updatedbu = bu::find($id);
         $updatedbu->fill($request->all())->save();
-        return Redirect::back();
+        if($updatedbu){
+            alert()->success('Build Updated', 'Successfully');
+            return redirect('adminpanel/bu');
+        }
     }
 
     public function destroy($id){
-        bu::find($id)->delete();
-        return redirect('adminpanel/bu');
-
+         $buDeleted = bu::find($id)->delete();
+         if($buDeleted){
+             alert()->success('Build Deleted','Successfully');
+             return redirect('adminpanel/bu');
+         }
     }
 
 
