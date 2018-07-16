@@ -86,9 +86,10 @@ class buController extends Controller
 
             })
 
-            ->editColumn('control', function ($model) {
 
-                $all = '<a href="'.url('/adminpanel/bu/'.$model->id.'/edit').'" class="btn btn-info btn-default"><i class="fa fa-edit"></i></a>';
+
+            ->addColumn('action', function($model){
+                $all = '<a href="'.url('/adminpanel/bu/'.$model->id.'/edit').'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"</i> Edit</a>';
                 $all .= '<a  href="'.url('/adminpanel/bu/'.$model->id.'/delete').'" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>';
                 return $all;
             })

@@ -84,8 +84,10 @@ class userController extends Controller
 
     public function anyData()
     {
+      //  $query = User::with('roles')->select('permissions.*')->orderBy('id','desc');
 
-        return DataTables::of(User::all())
+        $users = User::all();
+        return DataTables::of($users)
             ->editColumn('name', function ($model){
               return $model->name;
             })
@@ -94,12 +96,20 @@ class userController extends Controller
                 return $model->admin == 0 ? 'User' : 'Admin';
 
             })
-            ->editColumn('control', function ($model) {
+        /*    ->editColumn('control', function ($model) {
 
                 $all = '<a href="'.url('/adminpanel/users/'.$model->id.'/edit').'" class="btn btn-info btn-default"><i class="fa fa-edit"></i></a>';
                 $all .= '<a  href="'.url('/adminpanel/users/'.$model->id.'/delete').'" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>';
                 return $all;
+            })*/
+
+            ->addColumn('action', function($model){
+            $all = '<a href="'.url('/adminpanel/users/'.$model->id.'/edit').'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"</i> Edit</a>';
+            $all .= '<a  href="'.url('/adminpanel/users/'.$model->id.'/delete').'" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>';
+            return $all;
             })
+          //  ->editColumn('id', 'ID: {{$id}}')
+          //  ->removeColumn('password')
             ->make(true);
      }
 }
