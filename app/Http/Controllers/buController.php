@@ -124,7 +124,7 @@ class buController extends Controller
 
     public function search(Request $request){
         $requestAll = array_except($request->toArray(),['submit' , '_token']);
-        $query = DB::table('bu')->select('*');
+        $query = DB::table('BU')->select('*');
         foreach ($requestAll as $key => $req){
             if($req != ''){
                 $query->where($key , $req);
