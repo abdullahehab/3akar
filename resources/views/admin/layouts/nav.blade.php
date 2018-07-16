@@ -91,7 +91,7 @@
             <a href="#" class="nav-link active">
                 <i class="nav-icon fa fa-dashboard"></i>
                 <p>
-                    Immovables Control
+                    Builds Control
                     <i class="right fa fa-angle-left"></i>
                 </p>
             </a>
@@ -99,13 +99,13 @@
                 <li class="nav-item">
                     <a href="{{url('/adminpanel/bu')}}" class="nav-link active">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>View all Immovables</p>
+                        <p>View all Builds</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('/adminpanel/bu/create')}}" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Add new Immovables</p>
+                        <p>Add new Builds</p>
                     </a>
                 </li>
 
