@@ -30,6 +30,7 @@ class userController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'admin' =>$request->admin,
         ]);
         if($newUser){
             alert()->success('User Created', 'Successfully');
