@@ -151,7 +151,7 @@
                 {data: 'bu_type',name: 'bu_type'},
                 {data: 'created_at',name: 'created_at'},
                 {data: 'bu_status',name: 'bu_status'},
-                {data: 'control',name: ''}
+                {data: 'action',name: 'action',orderable: false, searchable: false }
 
             ],
 
