@@ -13,7 +13,7 @@
                             <span>Created :{{$b->created_at}}</span>
                             <span class="pull-right">Price : {{$b->bu_price}}</span>
                             <div class="detail">
-                                <p>{{str_limit($b->bu_name, 65)}}</p>
+                                <p>{{str_limit($b->bu_name)}}</p>
                                 <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="dsadas" />
                                 <a href="#" class="btn btn-info">Add To Cart</a>
                                 <a href="#" class="btn btn-info">Detail</a>
