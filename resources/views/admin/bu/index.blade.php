@@ -25,12 +25,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Immovables table</h1>
+                    <h1>Builds table</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{url ('/adminpanel')}}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{url ('/adminpanel/bu')}}">Immovables Control</a>
+                        <li class="breadcrumb-item active"><a href="{{url ('/adminpanel/bu')}}">Builds Control</a>
                     </ol>
                 </div>
             </div>
@@ -43,7 +43,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Hover Data Table</h3>
+                        <h3 class="card-title">Builds Data Table</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -51,7 +51,7 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Immovables Name</th>
+                                <th>Builds Name</th>
                                 <th>Price</th>
                                 <th>Type</th>
                                 <th>created_at</th>
