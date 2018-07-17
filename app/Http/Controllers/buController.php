@@ -125,13 +125,15 @@ class buController extends Controller
     public function search(Request $request){
         $requestAll = array_except($request->toArray(),['submit' , '_token']);
         $query = DB::table('BU')->select('*');
+        $array = [];
         foreach ($requestAll as $key => $req){
             if($req != ''){
                 $query->where($key , $req);
+                $array[$key] = $req;
             }
         }
         $buAll = $query->paginate(1);
-        return view('admin.website.bu.all' , compact('buAll'));
+        return view('admin.website.bu.all' , compact('buAll','array'));
 
 
         /*$buAll = $bu
