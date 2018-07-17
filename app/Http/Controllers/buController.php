@@ -116,13 +116,17 @@ class buController extends Controller
     // Return type of build
     public function type($type, bu $bu){
         if(in_array($type, ['1','0','2'])){ // to check builds flats or chalets and  Villa such whereas Villa = 1 , flats = 0 & chalets = 2
-            $buAll = $bu->where('bu_status', 1)->where('bu_type',$type)->paginate(15);;
+            $buAll = $bu->where('bu_status', 1)->where('bu_type',$type)->paginate(15);
             return view('admin.website.bu.all' , compact('buAll'));
         }else
             return Redirect::back();
     }
 
     public function search(Request $request){
+
+ /*       $max = $request->bu_price_to == '' ? '1000' : $request->bu_price_to;
+        $min = $request->bu_price_from == '' ? '500' : $request->bu_price_from;*/
+
         $requestAll = array_except($request->toArray(),['submit' , '_token']);
         $query = DB::table('BU')->select('*');
         $array = [];
@@ -131,6 +135,7 @@ class buController extends Controller
                 $query->where($key , $req);
                 $array[$key] = $req;
             }
+
         }
         $buAll = $query->paginate(1);
         return view('admin.website.bu.all' , compact('buAll','array'));
