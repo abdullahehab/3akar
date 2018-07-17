@@ -9,7 +9,9 @@ function getSetting($settingName = 'name'){ // by default $sittingName equal nam
 // Return array contain tupe of builds
 function buType(){
     $array = [
-      'شقه', 'فيلا', 'شاليه'
+      'شقه',
+      'فيلا',
+      'شاليه'
     ];
     return $array;
 }
@@ -18,7 +20,8 @@ function buType(){
 // Return array contain rent of builds and call it in form.blade.php
 function buRent(){
     $array = [
-        'بيع', 'إيجار'
+        'بيع',
+        'إيجار'
     ];
     return $array;
 }
@@ -136,4 +139,17 @@ function buCountry(){
     ];
     return $array;
 
+}
+
+// Rename filed to pass result of search
+function searchNameFiled(){
+    $array =[
+    "bu_price"=>"Price",
+    'bu_rooms'=>'Room number',
+    'bu_place'=>'Place',
+    'bu_type'=>'Type',
+    'bu_rent'=>'Operation',
+    'bu_square'=>'square',
+    ];
+    return $array;
 }
