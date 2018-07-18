@@ -163,4 +163,9 @@ class buController extends Controller
         return view('admin.website.bu.all' , compact('buAll','array'));
 
     }
+
+    public function showSingle($id){
+        $buInfo = bu::findOrFail($id);
+        return view('admin.website.bu.buInfo', compact('buInfo'));
+    }
 }
