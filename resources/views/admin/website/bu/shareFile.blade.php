@@ -15,8 +15,7 @@
                             <div class="detail">
                                 <p>{{str_limit($b->bu_name)}}</p>
                                 <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="dsadas" />
-                                <a href="#" class="btn btn-info">Add To Cart</a>
-                                <a href="#" class="btn btn-info">Detail</a>
+                                <a href="{{ url('/singleBuilding/'.$b->id) }}" class="btn btn-info center-block">Detail</a>
                             </div>
                         </div>
                     </div>
