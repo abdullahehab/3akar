@@ -34,8 +34,12 @@
                     <div  class="profile-usermenu" style="padding: 10px;">
                         {!! Form::open(['url' => 'search', 'action' => 'post']) !!}
                             <ul class="nav">
+
                                 <li class="itemSearch">
-                                    {!! Form::text('bu_price',null, ['class' => 'form-control', 'placeholder' => 'price of build']) !!}
+                                    {!! Form::text('bu_price_from',null, ['class' => 'form-control', 'placeholder' => 'Price From']) !!}
+                                </li>
+                                <li class="itemSearch">
+                                    {!! Form::text('bu_price_to',null, ['class' => 'form-control', 'placeholder' => 'Price To']) !!}
                                 </li>
 
                                 <li class="itemSearch">
