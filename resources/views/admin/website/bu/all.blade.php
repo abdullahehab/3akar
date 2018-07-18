@@ -2,7 +2,7 @@
 
 @section('title')
 
-    All Real Estate
+    All Builds
 
 @endsection
 
@@ -153,9 +153,7 @@
                     @include('admin.website.bu.shareFile',[ 'bu' => $buAll] )
 
                     <div class="text-center">
-                        @if(!isset($search))
                         {{ $buAll->appends(Request::except('page'))->links() }}
-                        @endif
                     </div>
 
                 </div>
