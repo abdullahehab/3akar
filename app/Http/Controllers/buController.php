@@ -124,7 +124,7 @@ class buController extends Controller
 
     public function search(Request $request){
 
-        $requestAll = array_except($request->toArray(),['submit' , '_token']);
+        $requestAll = array_except($request->toArray(),['submit' , '_token', 'page']);
         $query = DB::table('BU')->select('*');
         $array = [];
         $count = count($requestAll);
@@ -155,7 +155,7 @@ class buController extends Controller
               That Build Between Them*/
             }elseif($i == $count && $request->bu_price_to != '' && $request->bu_price_from != ''){
                 $query->whereBetween('bu_price' , [$request->bu_price_from, $request->bu_price_to]);
-                $array[$key] = $req;
+               // $array[$key] = $req;
             }
 
         }
