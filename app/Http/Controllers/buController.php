@@ -124,48 +124,43 @@ class buController extends Controller
 
     public function search(Request $request){
 
- /*       $max = $request->bu_price_to == '' ? '1000' : $request->bu_price_to;
-        $min = $request->bu_price_from == '' ? '500' : $request->bu_price_from;*/
-
         $requestAll = array_except($request->toArray(),['submit' , '_token']);
         $query = DB::table('BU')->select('*');
         $array = [];
+        $count = count($requestAll);
+        $i = 0;
+
         foreach ($requestAll as $key => $req){
+            $i++;
             if($req != ''){
-                $query->where($key , $req);
+
+                /* this condition to check the user enter ( Price Prom ) value and return the builds
+                 than equal or more than the price*/
+                if($key == 'bu_price_from' && $request->bu_price_to == ''){
+                    $query->where('bu_price', '>=' , $req);
+
+                /* this condition to check the user enter ( Price Prom ) value and return the builds
+                 than equal or less than the price*/
+                }elseif($key == 'bu_price_to' && $request->bu_price_from == ''){
+                    $query->where('bu_price', '<=' , $req);
+                }else{
+                    // this condition to check the user does not  enter any Price
+                    if($key != 'bu_price_to' && $key != 'bu_price_from'){
+                        $query->where($key , $req);
+                    }
+                }
+                $array[$key] = $req;
+                
+            /*This Condition To Check If User enter both ( Price To ) & ( Price From ) Values And Return
+              That Build Between Them*/
+            }elseif($i == $count && $request->bu_price_to != '' && $request->bu_price_from != ''){
+                $query->whereBetween('bu_price' , [$request->bu_price_from, $request->bu_price_to]);
                 $array[$key] = $req;
             }
 
         }
         $buAll = $query->paginate(1);
         return view('admin.website.bu.all' , compact('buAll','array'));
-
-
-        /*$buAll = $bu
-         ->where('bu_status', 1)
-         ->where('bu_type',$request->type)
-         ->where('bu_rent',$request->operation)
-         ->where('bu_square',$request->square)
-         ->where('bu_price',$request->price)
-         ->where('bu_rooms',$request->rooms)
-         ->paginate(15);
-         $buAll = DB::select($query);
-        $search = 'search';
-
-
-        In this code we can not paginate the resut
-        $out = '';
-        $i = 0;
-        foreach ($requestAll as $key => $value){
-            if($value != ''){
-                $where = $i == 0 ? " where ": ' and ';
-                $out .= $where . ' '. $bu->$key.' = ' .$value;
-                $i =2 ;
-            }
-        }
-
-        $query =   "select * from bu ". $out;
-        $buAll = DB::select($query);*/
 
     }
 }
