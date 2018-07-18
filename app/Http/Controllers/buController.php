@@ -150,7 +150,7 @@ class buController extends Controller
                     }
                 }
                 $array[$key] = $req;
-                
+
             /*This Condition To Check If User enter both ( Price To ) & ( Price From ) Values And Return
               That Build Between Them*/
             }elseif($i == $count && $request->bu_price_to != '' && $request->bu_price_from != ''){

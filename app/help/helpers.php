@@ -150,6 +150,8 @@ function searchNameFiled(){
     'bu_type'=>'Type',
     'bu_rent'=>'Operation',
     'bu_square'=>'square',
+    'bu_price_to' => 'Price To',
+    'bu_price_from' => 'Price From'
     ];
     return $array;
 }
