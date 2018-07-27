@@ -89,7 +89,7 @@ class userController extends Controller
         $users = User::all();
         return DataTables::of($users)
             ->editColumn('name', function ($model){
-              return $model->name;
+                return \Html::link('/adminpanel/users/'.$model->id. '/edit', $model->name);
             })
 
             ->editColumn('admin', function ($model) {
