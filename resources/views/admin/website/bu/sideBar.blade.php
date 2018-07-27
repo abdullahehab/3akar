@@ -4,7 +4,7 @@
             Advanced Search
         </h2>
         <div  class="profile-usermenu" style="padding: 10px;">
-            {!! Form::open(['url' => 'search', 'action' => 'get']) !!}
+            {!! Form::open(['url' => 'search', 'action' => 'post']) !!}
             <ul class="nav">
 
                 <li class="itemSearch">
