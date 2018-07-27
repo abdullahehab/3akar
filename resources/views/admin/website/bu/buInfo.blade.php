@@ -71,7 +71,7 @@
                     </div>
                     <hr>
                     <p>
-                        {{nl2br($buInfo->bu_large_dis)}}
+                        {!!  nl2br($buInfo->bu_large_dis) !!}
                     </p>
 
 
