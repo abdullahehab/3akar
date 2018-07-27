@@ -40,12 +40,48 @@
 
                 <div class="profile-content">
 
+                    <h1>
+                        {{ $buInfo->bu_name }}
+                    </h1>
+                    <hr>
+
+                    <div class="btn-group" role="group">
+                        <a href="{{ url('/search/?bu_price='.$buInfo->bu_price) }}" class="btn btn-default">
+                            Price : {{ $buInfo->bu_price }}
+                        </a>
+                        <a href="{{ url('/search/?bu_square='.$buInfo->bu_square) }}" class="btn btn-default">
+                            Square : {{ $buInfo->bu_square }}
+                        </a>
+
+                        <a href="{{ url('/search/?bu_place='.$buInfo->bu_place) }}" class="btn btn-default">
+                            Country : {{ buCountry()[$buInfo->bu_place] }}
+                        </a>
+
+                        <a href="{{ url('/search/?bu_rooms='.$buInfo->bu_rooms) }}" class="btn btn-default">
+                            Number Of Rooms : {{ $buInfo->bu_rooms }}
+                        </a>
+
+                        <a href="{{ url('/search/?bu_rent='.$buInfo->bu_rent) }}" class="btn btn-default">
+                            Type Of Operation : {{ buRent()[$buInfo->bu_rent] }}
+                        </a>
+
+                        <a href="{{ url('/search/?bu_type='.$buInfo->bu_type) }}" class="btn btn-default">
+                            Type Of Build : {{ buType()[$buInfo->bu_type] }}
+                        </a>
+                    </div>
+                    <hr>
+                    <p>
+                        {{nl2br($buInfo->bu_large_dis)}}
+                    </p>
+
+
+
 
             </div>
         </div>
     </div>
-    <br>
-    <br>
-
+        <br>
+        <br>
+    </div>
 
 @endsection
