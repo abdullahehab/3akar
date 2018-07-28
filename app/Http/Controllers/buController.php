@@ -166,6 +166,8 @@ class buController extends Controller
 
     public function showSingle($id){
         $buInfo = bu::findOrFail($id);
-        return view('admin.website.bu.buInfo', compact('buInfo'));
+        $same_rent = bu::where('bu_rent' ,$buInfo->bu_rent)->orderBy(DB::raw('RAND()'))->take(2)->get();
+        $same_type = bu::where('bu_type' ,$buInfo->bu_type)->orderBy(DB::raw('RAND()'))->take(2)->get();
+        return view('admin.website.bu.buInfo', compact('buInfo', 'same_rent', 'same_type'));
     }
 }
