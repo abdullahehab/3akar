@@ -10,8 +10,11 @@
                         <div class="my-list">
                             <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="dsadas" />
                             <h3>{{$b->bu_name}}</h3>
-                            <span>Created :{{$b->created_at}}</span>
-                            <span class="pull-right">Price : {{$b->bu_price}}</span>
+                            <span>Square : {{ $b->bu_square }}</span>
+                            <span>Price : {{ $b->bu_price }}</span>
+                            <span>Country : {{ buCountry()[$b->bu_place]  }}</span>
+                            <span>Type : {{ buType()[$b->bu_type] }}</span>
+                            <span>Operation : {{ buRent()[$b->bu_rent] }}</span>
                             <div class="detail">
                                 <p>{{str_limit($b->bu_name)}}</p>
                                 <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="dsadas" />
