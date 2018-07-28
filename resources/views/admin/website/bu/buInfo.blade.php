@@ -77,7 +77,17 @@
 
 
 
+
             </div>
+
+                <br>
+
+                {{-- Return Related Buids in rent and type --}}
+                <div class="profile-content">
+                    <h3>Related Builds</h3>
+                    @include('admin.website.bu.shareFile', ['bu' => $same_rent])
+                    @include('admin.website.bu.shareFile', ['bu' => $same_type])
+                </div>
         </div>
     </div>
         <br>
