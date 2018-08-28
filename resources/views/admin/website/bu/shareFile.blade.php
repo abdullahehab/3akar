@@ -21,7 +21,7 @@
 
                     <hr>
                     <div class="pull-right">
-                        <a href="#" class="btn btn-primary btm-sm" role="button">إظهار التفاصيل
+                        <a href="{{ url('singleBuilding/'.$b->id) }}" class="btn btn-primary btm-sm" role="button">إظهار التفاصيل
                             <span class="fa fa-arrow-circle-o-right" style="color:#FFFFFF"></span>
                         </a>
                     </div>
