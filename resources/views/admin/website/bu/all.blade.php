@@ -9,7 +9,8 @@
 @section('header')
 
     {!! Html::style('custom/buall.css') !!}
-
+    {{--{!! Html::style('custom/test.css') !!}--}}
+    {!! Html::style('custom/sidebar.css') !!}
 
     <style>
         .itemSearch{
@@ -58,7 +59,7 @@
 
                 <div class="profile-content">
 
-                    @include('admin.website.bu.shareFile',[ 'bu' => $buAll->toArray()] )
+                    @include('admin.website.bu.shareFile',[ 'bu' => $buAll] )
 
                     <div class="text-center">
                         {{ $buAll->appends(Request::except('page'))->links() }}
