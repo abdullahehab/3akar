@@ -159,7 +159,7 @@ class buController extends Controller
             }
 
         }
-        $buAll = $query->paginate(1);
+        $buAll = $query->paginate(15);
         return view('admin.website.bu.all' , compact('buAll','array'));
 
     }
