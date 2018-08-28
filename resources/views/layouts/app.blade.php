@@ -36,8 +36,41 @@
                     @isUser
                     <li><a href="{{url('showAllBuilding')}}">All Buildings</a></li>
                     @endif
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                            For Rent <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            @foreach(buType() as $keyType => $type)
+                            <li style="width: 100%">
+                                <a href="{{ url('/search?bu_rent=1&bu_type='.$keyType) }}">
+                                    {{ $type  }}
+                                </a>
+
+                            </li>
+                            @endforeach
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                            For Sale <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            @foreach(buType() as $keyType => $type)
+                                <li style="width: 100%">
+                                    <a href="{{ url('/search?bu_rent=0&bu_type='.$keyType) }}">
+                                        {{ $type  }}
+                                    </a>
+
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+
                     <li><a href="contact.html">Contact Us</a></li>
                     <!-- Authentication Links -->
                     @guest
