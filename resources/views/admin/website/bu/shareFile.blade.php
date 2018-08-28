@@ -19,6 +19,13 @@
                     </span>
                     <div class="clearfix"></div>
 
+                    <span class="pull-right">
+                        نوع العقار : {{ buType()[$b->bu_type] }}
+                    </span>
+                    <span class="pull-left">
+                        المكان : {{ buCountry()[$b->bu_place] }}
+                    </span>
+
                     <hr>
                     <div class="pull-right">
                         <a href="{{ url('singleBuilding/'.$b->id) }}" class="btn btn-primary btm-sm" role="button">إظهار التفاصيل
