@@ -19,6 +19,10 @@
         .breadcrumb{
             background-color: white;
         }
+
+        .text-justify {
+            margin-bottom: 10px;
+        }
     </style>
 
 @endsection
