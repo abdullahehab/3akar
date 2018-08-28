@@ -9,6 +9,7 @@
 @section('header')
 
     {!! Html::style('custom/buall.css') !!}
+    {!! Html::style('custom/sidebar.css') !!}
     <style>
         .itemSearch{
             margin-bottom: 10px;
