@@ -72,7 +72,7 @@ class buController extends Controller
 
         return DataTables::of(bu::all())
             ->editColumn('bu_name', function ($model){
-                return $model->bu_name;
+                return \Html::link('/adminpanel/bu/'.$model->id. '/edit', $model->bu_name);
             })
 
             ->editColumn('bu_status', function ($model) {
