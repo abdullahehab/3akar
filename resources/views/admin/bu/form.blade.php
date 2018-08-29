@@ -170,6 +170,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('bu_image') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-3 control-label">Image For Build</label>
+
+                            <div class="col-md-6">
+                                {!! Form::file('bu_image' ,  null , ['class' => "form-control"]) !!}
+
+                                @if ($errors->has('bu_image'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('bu_image') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('bu_large_dis') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-3 control-label">Long Description</label>
 
