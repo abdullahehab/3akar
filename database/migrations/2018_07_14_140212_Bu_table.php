@@ -30,6 +30,7 @@ class BUTable extends Migration
             $table->string('bu_place');
             $table->timestamps();
             $table->unsignedInteger('user_id');
+            $table->string('bu_image')->default('defalut.svg');
 
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
