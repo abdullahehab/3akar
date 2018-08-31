@@ -84,7 +84,10 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
+                                        <a href="{{ url('/profile') }}" class="fa fa-btn fa-user">
+                                            Profile
+                                        </a>
+                                        <a href="{{ route('logout') }}" class="fa fa-btn fa-sign-out"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
