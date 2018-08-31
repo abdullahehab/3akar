@@ -13,7 +13,7 @@
                 <div class="panel panel-default">
                     <h2 class="panel-heading">{{$user->name}} Profile</h2>
                     <div class="panel-body">
-                        <img src="/bu_image/{{$user->avatar}}" style="width:150px; height: 150px; float: left; border-radius: 50%; margin-right: 25px" alt="Profile photo">
+                        <img src="/userImage/{{$user->avatar}}" style="width:150px; height: 150px; float: left; border-radius: 50%; margin-right: 25px" alt="Profile photo">
                         <h2 class="col-md-4">{{$user->name}}</h2>
 
                         {!! Form::open(['url' => url('/profile') ,'method' =>'post' , 'files' => true]) !!}
