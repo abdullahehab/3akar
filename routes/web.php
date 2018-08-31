@@ -15,8 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*User profile route and update photo*/
+Route::group(['middleware' => ['auth']] , function() {
+    Route::get('/profile', 'userController@profile');
+    Route::post('/profile', 'userController@updateAvatar');
+
+});
+
 
 Route::group(['middleware' => ['web','admin']] , function(){
+
+
+
 
         # admin panel prefix
         Route::prefix('adminpanel')->group(function (){
@@ -32,6 +42,7 @@ Route::group(['middleware' => ['web','admin']] , function(){
         Route::get('users/{id}/delete', 'userController@destroy'); // w da b2a b el resouce
         Route::resource('/users','userController');
         Route::post('/users/changepassword', 'userController@updatePassword');
+
 
         #site setting route
         Route::get('/sitesetting', 'siteSettingController@index');
