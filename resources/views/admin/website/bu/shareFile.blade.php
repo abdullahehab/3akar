@@ -15,12 +15,12 @@
                         المساحه : {{ $b->bu_square }}
                     </span>
                     <span class="pull-left">
-                        نوع العمليه : {{ buRent()[$b->bu_rent] }}
+                        العمليه : {{ buRent()[$b->bu_rent] }}
                     </span>
                     <div class="clearfix"></div>
 
                     <span class="pull-right">
-                        نوع العقار : {{ buType()[$b->bu_type] }}
+                        العقار : {{ buType()[$b->bu_type] }}
                     </span>
                     <span class="pull-left">
                         المكان : {{ buCountry()[$b->bu_place] }}
