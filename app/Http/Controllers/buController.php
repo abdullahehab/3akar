@@ -76,7 +76,7 @@ class buController extends Controller
             })
 
             ->editColumn('bu_status', function ($model) {
-                return $model->bu_status == 0 ? 'مٌفعل' : 'غير مٌفعل';
+                return $model->bu_status == 1 ? 'مٌفعل' : 'غير مٌفعل';
 
             })
 
