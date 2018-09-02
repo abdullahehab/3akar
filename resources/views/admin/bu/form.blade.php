@@ -171,11 +171,18 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('bu_image') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-3 control-label">Image For Build</label>
+
+                            <label for="name" class="col-md-3 control-label">Upload Photo</label>
 
                             <div class="col-md-6">
-                                {!! Form::file('bu_image' ,  null , ['class' => "form-control"]) !!}
-
+                                @if(isset($bu))
+                                    @if($bu->bu_image != '')
+                                        <img src="{{ Request::root().'/bu_image/'.$bu->bu_image }}" alt="" style="width:150px; height: 150px;">
+                                        <div class="clearfix"></div>
+                                        <br>
+                                    @endif
+                                @endif
+                                {!! Form::file('bu_image' , null , ['class' => "form-control"]) !!}
                                 @if ($errors->has('bu_image'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('bu_image') }}</strong>

@@ -5,7 +5,7 @@
         @endif
         <div class="col-md-4">
             <div class="productbox">
-                <img src="http://lorempixel.com/460/250/" class="img-responsive">
+                <img src="/bu_image/{{$b->bu_image}}" style="width:100%; height: 150px; float: left;  margin-right: 25px" class="img-responsive">
                 <div class="producttitle">{{ $b->bu_name }}</div>
                 <p class="text-justify">{{ str_limit($b->bu_small_des, 70) }}</p>
 
@@ -15,12 +15,12 @@
                         المساحه : {{ $b->bu_square }}
                     </span>
                     <span class="pull-left">
-                        نوع العمليه : {{ buRent()[$b->bu_rent] }}
+                        العمليه : {{ buRent()[$b->bu_rent] }}
                     </span>
                     <div class="clearfix"></div>
 
                     <span class="pull-right">
-                        نوع العقار : {{ buType()[$b->bu_type] }}
+                        العقار : {{ buType()[$b->bu_type] }}
                     </span>
                     <span class="pull-left">
                         المكان : {{ buCountry()[$b->bu_place] }}

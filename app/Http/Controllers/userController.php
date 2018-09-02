@@ -6,9 +6,31 @@ use App\bu;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\addUserRequsetAdmin;
+use Illuminate\Support\Facades\Auth;
+use Image;
 use Yajra\DataTables\DataTables;
 class userController extends Controller
 {
+
+    public function profile(){
+        return view('admin.user.profile', array('user' => Auth::user()));
+    }
+
+    public function updateAvatar(Request $request){
+
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $avatarName = time() . "." . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300,300)->save(public_path('/userImage/'. $avatarName));
+
+            $user = Auth::user();
+            $user->avatar = $avatarName;
+            $user->save();
+
+        }
+        return view('admin.user.profile', array('user' => Auth::user()));
+
+    }
 
     public function index()
     {
