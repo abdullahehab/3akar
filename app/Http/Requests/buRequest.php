@@ -37,7 +37,7 @@ class buRequest extends FormRequest
             'bu_status'     =>  'required|integer',
             'bu_rooms'      =>  'required|integer',
             'bu_place'      =>  'required',
-            'bu_image'      =>  'required|mimes:png,jpg,jpeg,svg'
+            'bu_image'      =>  'mimes:png,jpg,jpeg,svg'
         ];
     }
 }
