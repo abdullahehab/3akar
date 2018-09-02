@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\bu;
+use Image;
 use App\Http\Requests\buRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,14 @@ class buController extends Controller
     }
 
     public function store(buRequest $burequest, bu $bu){
+
+        if($burequest->hasFile('bu_image')){
+            $img = $burequest->file('bu_image');
+            $imgName = time() . "." . $img->getClientOriginalName();
+            Image::make($img)->save(public_path('/bu_image/'. $imgName));
+            $image = $bu['bu_image'] = $imgName;
+        }
+
         $data = [
             'bu_name'       =>  $burequest  ->  bu_name,
             'bu_price'      =>  $burequest  ->  bu_price,
@@ -35,6 +44,7 @@ class buController extends Controller
             'user_id'       => Auth::id(),
             'bu_rooms'      => $burequest   -> bu_rooms,
             'bu_place'      => $burequest   ->bu_place,
+            'bu_image'      => $image
         ];
         $bu->create($data);
         if($bu){
@@ -51,7 +61,16 @@ class buController extends Controller
 
     public function update($id, buRequest $request){
         $updatedbu = bu::find($id);
-        $updatedbu->fill($request->all())->save();
+
+        $updatedbu->fill(array_except($request->all(),['bu_image']))->save();
+
+        if($request->hasFile('bu_image')){
+            $img = $request->file('bu_image');
+            $imgName = time() . "." . $img->getClientOriginalName();
+            Image::make($img)->save(public_path('/bu_image/'. $imgName));
+            $updatedbu->fill(['bu_image' => $imgName])->save();
+        }
+
         if($updatedbu){
             alert()->success('Build Updated', 'Successfully');
             return redirect('adminpanel/bu');
