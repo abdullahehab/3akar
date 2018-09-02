@@ -50,7 +50,8 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        {!! Form::model($bu ,['route' => ['bu.update' , $bu->id] ,'method' =>'PATCH', 'files' => true]) !!}
+
+                        {!! Form::model($bu ,['route' => ['bu.update' , $bu->id] ,'method' =>'PATCH', 'files'=> true]) !!}
                             @include('admin.bu.form')
                         {!! Form::close() !!}
                     </div>

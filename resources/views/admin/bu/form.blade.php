@@ -171,6 +171,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('bu_image') ? ' has-error' : '' }}">
+
                             <label for="name" class="col-md-3 control-label">Upload Photo</label>
 
                             <div class="col-md-6">
@@ -182,7 +183,6 @@
                                     @endif
                                 @endif
                                 {!! Form::file('bu_image' , null , ['class' => "form-control"]) !!}
-
                                 @if ($errors->has('bu_image'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('bu_image') }}</strong>
