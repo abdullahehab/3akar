@@ -47,7 +47,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                            {!! Form::open(['url' => url('/adminpanel/bu') ,'method' =>'post']) !!}
+                            {!! Form::open(['url' => url('/adminpanel/bu') ,'method' =>'post', 'files' => true]) !!}
                               @include('admin.bu.form')
                             {!! Form::close() !!}
 
