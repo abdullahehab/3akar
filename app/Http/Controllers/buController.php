@@ -27,7 +27,24 @@ class buController extends Controller
             $imgName = time() . "." . $img->getClientOriginalName();
             Image::make($img)->save(public_path('/bu_image/'. $imgName));
             $image = $bu['bu_image'] = $imgName;
-        }
+            $data = [
+                'bu_name'       =>  $burequest  ->  bu_name,
+                'bu_price'      =>  $burequest  ->  bu_price,
+                'bu_rent'       =>  $burequest  ->  bu_rent,
+                'bu_square'     =>  $burequest  ->  bu_square,
+                'bu_type'       =>  $burequest  ->  bu_type,
+                'bu_small_des'  =>  $burequest  ->  bu_small_des,
+                'bu_meta'       =>  $burequest  ->  bu_meta,
+                'bu_langtuide'  =>  $burequest  -> bu_langtuide,
+                'bu_latitude'   =>  $burequest  ->  bu_latitude,
+                'bu_large_dis'  =>  $burequest  ->  bu_large_dis,
+                'bu_status'     =>  $burequest  ->  bu_status,
+                'user_id'       => Auth::id(),
+                'bu_rooms'      => $burequest   -> bu_rooms,
+                'bu_place'      => $burequest   ->bu_place,
+                'bu_image'      => $image
+            ];
+        }else{
 
         $data = [
             'bu_name'       =>  $burequest  ->  bu_name,
@@ -43,9 +60,9 @@ class buController extends Controller
             'bu_status'     =>  $burequest  ->  bu_status,
             'user_id'       => Auth::id(),
             'bu_rooms'      => $burequest   -> bu_rooms,
-            'bu_place'      => $burequest   ->bu_place,
-            'bu_image'      => $image
+            'bu_place'      => $burequest   ->bu_place
         ];
+        }
         $bu->create($data);
         if($bu){
             alert()->success('Build Created', 'Successfully');
