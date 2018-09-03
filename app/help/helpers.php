@@ -94,3 +94,9 @@ function searchNameFiled(){
     ];
     return $array;
 }
+
+function uploadImage($request, $path = '/bu_image/'){
+    $imgName = time() . "." . $request->getClientOriginalName();
+    Image::make($request)->resize(500,361)->save(public_path($path. $imgName));
+    return $imgName;
+}
