@@ -25,7 +25,7 @@ class buController extends Controller
         if($burequest->hasFile('bu_image')){
             $img = $burequest->file('bu_image');
             $imgName = time() . "." . $img->getClientOriginalName();
-            Image::make($img)->save(public_path('/bu_image/'. $imgName));
+            Image::make($img)->resize(500,361)->save(public_path('/bu_image/'. $imgName));
             $image = $bu['bu_image'] = $imgName;
             $data = [
                 'bu_name'       =>  $burequest  ->  bu_name,
@@ -84,7 +84,7 @@ class buController extends Controller
         if($request->hasFile('bu_image')){
             $img = $request->file('bu_image');
             $imgName = time() . "." . $img->getClientOriginalName();
-            Image::make($img)->save(public_path('/bu_image/'. $imgName));
+            Image::make($img)->resize(500,361)->save(public_path('/bu_image/'. $imgName));
             $updatedbu->fill(['bu_image' => $imgName])->save();
         }
 
