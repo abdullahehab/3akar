@@ -71,6 +71,8 @@
                         </a>
                     </div>
                     <hr>
+
+                    <img src="/bu_image/{{$buInfo->bu_image}}" class="img-responsive" alt="">
                     <p>
                         {!!  nl2br($buInfo->bu_large_dis) !!}
                     </p>
