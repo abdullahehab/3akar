@@ -15,7 +15,7 @@ class siteSettingController extends Controller
         return view('admin.siteSetting.index', compact('siteSetting'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, SiteSetting $sitesetting){
 
         foreach (array_except($request->toArray(), ['_token', 'submit']) as $key => $req) {
 
