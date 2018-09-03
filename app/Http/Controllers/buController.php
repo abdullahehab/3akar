@@ -23,10 +23,8 @@ class buController extends Controller
     public function store(buRequest $burequest, bu $bu){
 
         if($burequest->hasFile('bu_image')){
-            $img = $burequest->file('bu_image');
-            $imgName = time() . "." . $img->getClientOriginalName();
-            Image::make($img)->resize(500,361)->save(public_path('/bu_image/'. $imgName));
-            $image = $bu['bu_image'] = $imgName;
+            $fileName = uploadImage($burequest->file('bu_image')); // uploadImage function in helpers.php
+            $image = $bu['bu_image'] = $fileName;
             $data = [
                 'bu_name'       =>  $burequest  ->  bu_name,
                 'bu_price'      =>  $burequest  ->  bu_price,
@@ -82,10 +80,8 @@ class buController extends Controller
         $updatedbu->fill(array_except($request->all(),['bu_image']))->save();
 
         if($request->hasFile('bu_image')){
-            $img = $request->file('bu_image');
-            $imgName = time() . "." . $img->getClientOriginalName();
-            Image::make($img)->resize(500,361)->save(public_path('/bu_image/'. $imgName));
-            $updatedbu->fill(['bu_image' => $imgName])->save();
+            $fileName = uploadImage($request->file('bu_image')); // uploadImage function in helpers.php
+            $updatedbu->fill(['bu_image' => $fileName])->save();
         }
 
         if($updatedbu){
