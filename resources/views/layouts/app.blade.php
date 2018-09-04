@@ -2,6 +2,8 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
 
+    @yield("header")
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"></title>
     {{Html::style('website/css/bootstrap.min.css')}}
@@ -23,7 +25,6 @@
     {!! Html::style('custom/select2/css/select2.css') !!}
 
 
-    @yield("header")
 
 </head>
 <body>
@@ -130,7 +131,7 @@
     </div>
 
 
-    @yield("footer ")
+
     <!-- Scripts -->
     {{Html::script('website/js/app.js')}}
     {{Html::script('website/js/bootstrap.min.js')}}
@@ -138,6 +139,7 @@
     {{Html::script('website/js/responsive-nav.js')}}
     {{--Select2 --}}
     {!! Html::script('custom/select2/js/select2.js') !!}
+    @yield("footer")
     <script type="text/javascript">
 
         // In your Javascript (external .js resource or <script> tag)
