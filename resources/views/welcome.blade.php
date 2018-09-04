@@ -68,88 +68,28 @@
     <div class="main">
 
         <ul class="cd-items cd-container">
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
-
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
-
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
-
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
-
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
-
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
-
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
-
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
-
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
-
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
-
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
-
-            <li class="cd-item">
-                <img src="home/img/item-1.jpg" alt="Item Preview">
-                <a href="#0" class="cd-trigger">Quick View</a>
-            </li> <!-- cd-item -->
+            @foreach(\App\bu::where('bu_status' , 1)->get() as $bu)
+                <li class="cd-item">
+                    <img src="/bu_image/{{$bu->bu_image}}" alt="{{ $bu->bu_name }}">
+                    <a href="#0" data-id="{{ $bu->id }}" class="cd-trigger">Quick View</a>
+                </li> <!-- cd-item -->
+            @endforeach
         </ul> <!-- cd-items -->
 
         <div class="cd-quick-view">
             <div class="cd-slider-wrapper">
                 <ul class="cd-slider">
-                    <li class="selected"><img src="home/img/item-1.jpg" alt="Product 1"></li>
-                    <li><img src="home/img/item-2.jpg" alt="Product 2"></li>
-                    <li><img src="home/img/item-3.jpg" alt="Product 3"></li>
+                    <li class="selected"><img src="" class="imageBox" alt="Product 1"></li>
                 </ul> <!-- cd-slider -->
-
-                <ul class="cd-slider-navigation">
-                    <li><a class="cd-next" href="#0">Prev</a></li>
-                    <li><a class="cd-prev" href="#0">Next</a></li>
-                </ul> <!-- cd-slider-navigation -->
             </div> <!-- cd-slider-wrapper -->
 
             <div class="cd-item-info">
-                <h2>Produt Title</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium.</p>
+                <h2 class="titleBox"></h2>
+                <p class="disBox"></p>
 
                 <ul class="cd-item-action">
-                    <li><button class="add-to-cart">Add to cart</button></li>
-                    <li><a href="#0">Learn more</a></li>
+                    <li><a href="" class="add-to-cart priceBox"></a></li>
+                    <li><a href="" class="moreBox">Read more</a></li>
                 </ul> <!-- cd-item-action -->
             </div> <!-- cd-item-info -->
             <a href="#0" class="cd-close">Close</a>
@@ -163,8 +103,10 @@
     {{ Html::script('home/js/jquery-2.1.1.js') }}
     {{ Html::script('home/js/velocity.min.js') }}
     {{ Html::script('home/js/main.js') }}
-{{--
-    <script src="{{ Request::root() }}/home/js/jquery-2.1.1.js"></script>
-    <script src="js/velocity.min.js"></script>
-    <script src="js/main.js"></script> <!-- Resource jQuery -->--}}
+    <script>
+        function urlHome(){
+            return '{{ Request::root() }}';
+        }
+    </script>
+
 @endsection
