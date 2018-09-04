@@ -202,4 +202,9 @@ class buController extends Controller
         $same_type = bu::where('bu_type' ,$buInfo->bu_type)->orderBy(DB::raw('RAND()'))->take(2)->get();
         return view('admin.website.bu.buInfo', compact('buInfo', 'same_rent', 'same_type'));
     }
+
+    public function getAjaxInfo(Request $request, bu $bu)
+    {
+        return $bu->find($request->id)->toJson();
+    }
 }
