@@ -6,6 +6,21 @@ jQuery(document).ready(function($){
 
 	//open the quick view panel
 	$('.cd-trigger').on('click', function(event){
+		var id  = $(this).data('id'); // get build id
+		var url = urlHome();
+		$.get(url+'/ajax/bu/information', {id:id}, function(res){
+
+			var json = JSON.parse(res);
+
+			$('.titleBox').html(json.bu_name);
+            $('.disBox').html(json.bu_small_des);
+            $('.imageBox').attr('src', url+'/bu_image/'+json.bu_image);
+            $('.priceBox').html(json.bu_price);
+            $('.priceBox').attr('href', url+'/search?bu_price='+json.bu_price);
+            $('.moreBox').attr('href', url+'/singleBuilding/'+json.id);
+
+		});
+
 		var selectedImage = $(this).parent('.cd-item').children('img'),
 			slectedImageUrl = selectedImage.attr('src');
 
