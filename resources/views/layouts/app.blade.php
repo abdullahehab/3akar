@@ -2,6 +2,15 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
 
+    <style>
+
+        .elevation-2 {
+            box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+            width: 2.1rem;
+            height: auto;
+        }
+    </style>
+
     @yield("header")
 
     <meta charset="utf-8">
@@ -78,7 +87,9 @@
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li class="dropdown">
+
+                        <a href="{{ url('/profile') }}"><img src="/userImage/{{Auth::user()->avatar}}" class="img-circle elevation-2" alt="User Image"></a>
+                        <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
