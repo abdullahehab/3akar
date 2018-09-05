@@ -11,12 +11,14 @@
     {{ Html::style('home/css/reset.css') }}
     {{ Html::style('home/css/style.css') }}
     {{ Html::script('home/js/modernizr.js') }}
+    {{Html::style('custom/select2/css/select2.css') }}
 
-{{--
-    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-    <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-    <script src="js/modernizr.js"></script> <!-- Modernizr -->
---}}
+
+    {{--
+        <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+        <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+        <script src="js/modernizr.js"></script> <!-- Modernizr -->
+    --}}
 
 @endsection
 
@@ -103,10 +105,15 @@
     {{ Html::script('home/js/jquery-2.1.1.js') }}
     {{ Html::script('home/js/velocity.min.js') }}
     {{ Html::script('home/js/main.js') }}
+    {!! Html::script('custom/select2/js/select2.js') !!}
     <script>
         function urlHome(){
             return '{{ Request::root() }}';
         }
+
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
     </script>
 
 @endsection
