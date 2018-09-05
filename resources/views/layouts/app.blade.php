@@ -41,7 +41,7 @@
         <div class="container"> <a class="navbar-brand" href="{{url('/')}}"><i class="fa fa-paper-plane"></i> ONE</a>
             <div class="menu"> <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /> </a>
                 <ul class="nav" id="nav">
-                    <li class="current"><a href="{{url('home')}}">Home</a></li>
+                    <li class="current"><a href="{{ url('/home') }}">Home</a></li>
                     {{-- Call isUser Directive to check user is login --}}
                     @isUser
                     <li><a href="{{url('showAllBuilding')}}">All Buildings</a></li>
