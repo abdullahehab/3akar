@@ -81,8 +81,9 @@
         <div class="cd-quick-view">
             <div class="cd-slider-wrapper">
                 <ul class="cd-slider">
-                    <li class="selected"><img src="" class="imageBox" alt="Product 1"></li>
+                    <img src=""  class="imageBox" alt="Product 1">
                 </ul> <!-- cd-slider -->
+
             </div> <!-- cd-slider-wrapper -->
 
             <div class="cd-item-info">
@@ -91,11 +92,34 @@
 
                 <ul class="cd-item-action">
                     <li><a href="" class="add-to-cart priceBox"></a></li>
-                    <li><a href="" class="moreBox">Read more</a></li>
+                    <li><a href="#0" class="moreBox">Learn more</a></li>
                 </ul> <!-- cd-item-action -->
             </div> <!-- cd-item-info -->
             <a href="#0" class="cd-close">Close</a>
         </div> <!-- cd-quick-view -->
+
+        {{--
+
+          <div class="cd-quick-view">
+              <div class="cd-slider-wrapper">
+                  <ul class="cd-slider">
+                      <li class="selected"><img src="" class="imageBox" alt="Product 1"></li>
+                  </ul> <!-- cd-slider -->
+              </div> <!-- cd-slider-wrapper -->
+          </div>
+
+
+              <div class="cd-item-info">
+                  <h2 class="titleBox"></h2>
+                  <p class="disBox"></p>
+
+                  <ul class="cd-item-action">
+                      <li><a href="" class="add-to-cart priceBox"></a></li>
+                      <li><a href="" class="moreBox">Read more</a></li>
+                  </ul> <!-- cd-item-action -->
+              </div> <!-- cd-item-info -->
+              <a href="#0" class="cd-close">Close</a>
+      </div>--}}
 
     </div>
 @endsection
