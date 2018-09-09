@@ -16,6 +16,7 @@ jQuery(document).ready(function($){
 			$('.titleBox').html(json.bu_name);
             $('.disBox').html(json.bu_small_des);
             $('.imageBox').attr('src', url+'/bu_image/'+json.bu_image);
+            $('.priceBox').html(json.bu_price);
             $('.priceBox').attr('href', url+'/search?bu_price='+json.bu_price);
             $('.moreBox').attr('href', url+'/singleBuilding/'+json.id);
 
