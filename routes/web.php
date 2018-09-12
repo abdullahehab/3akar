@@ -59,6 +59,9 @@ Route::group(['middleware' => ['web','admin']] , function(){
 
 });
 
+Route::get('contactUs', 'HomeController@contact');
+
+
 
 
 Auth::routes();
