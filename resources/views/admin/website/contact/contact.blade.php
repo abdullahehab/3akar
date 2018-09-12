@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="well well-sm">
-                    <form>
+                    {!! Form::open(['url' => '/contactUs', 'method' => 'post']) !!}
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -72,7 +72,7 @@
                                     Send Message</button>
                             </div>
                         </div>
-                    </form>
+                   {!! Form::close() !!}
                 </div>
             </div>
             <div class="col-md-4">
