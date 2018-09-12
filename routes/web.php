@@ -73,6 +73,7 @@ Route::get('forRentOrSale/{type}', 'buController@forRentOrSale');
 Route::get('type/{type}', 'buController@type');
 Route::get('search', 'buController@search');
 Route::get('singleBuilding/{id}', 'buController@showSingle');
+Route::get('ajax/bu/information', 'buController@getAjaxInfo');
 
 
 

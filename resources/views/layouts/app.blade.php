@@ -2,6 +2,17 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
 
+    <style>
+
+        .elevation-2 {
+            box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+            width: 2.1rem;
+            height: auto;
+        }
+    </style>
+
+    @yield("header")
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"></title>
     {{Html::style('website/css/bootstrap.min.css')}}
@@ -23,7 +34,6 @@
     {!! Html::style('custom/select2/css/select2.css') !!}
 
 
-    @yield("header")
 
 </head>
 <body>
@@ -77,7 +87,9 @@
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li class="dropdown">
+
+                        <a href="{{ url('/profile') }}"><img src="/userImage/{{Auth::user()->avatar}}" class="img-circle elevation-2" alt="User Image"></a>
+                        <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -130,7 +142,7 @@
     </div>
 
 
-    @yield("footer ")
+
     <!-- Scripts -->
     {{Html::script('website/js/app.js')}}
     {{Html::script('website/js/bootstrap.min.js')}}
@@ -138,6 +150,7 @@
     {{Html::script('website/js/responsive-nav.js')}}
     {{--Select2 --}}
     {!! Html::script('custom/select2/js/select2.js') !!}
+    @yield("footer")
     <script type="text/javascript">
 
         // In your Javascript (external .js resource or <script> tag)

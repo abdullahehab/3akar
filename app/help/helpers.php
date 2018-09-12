@@ -47,12 +47,12 @@ function roomNumber(){
 // Return array contain All Countries and call it in form.blade.php
 function buCountry(){
     $array = [
-"1"=> "الإسكندرية",
-"2"=> "الإسماعيلية",
-"3"=> "أسوان",
-"4"=> "أسيوط",
-"5"=> "الأقصر",
-"6"=> "البحر الأحمر",
+"1"=> "الاسكندرية",
+"2"=> "الاسماعيلية",
+"3"=> "اسوان",
+"4"=> "اسيوط",
+"5"=> "الاقصر",
+"6"=> "البحر الاحمر",
 "7"=> "البحيرة",
 "8"=> "بني سويف",
 "9"=> "بورسعيد",
@@ -93,4 +93,10 @@ function searchNameFiled(){
     'bu_price_from' => 'Price From'
     ];
     return $array;
+}
+
+function uploadImage($request, $path = '/bu_image/'){
+    $imgName = time() . "." . $request->getClientOriginalName();
+    Image::make($request)->resize('500','362')->save(public_path($path. $imgName));
+    return $imgName;
 }

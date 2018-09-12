@@ -23,11 +23,26 @@ class buController extends Controller
     public function store(buRequest $burequest, bu $bu){
 
         if($burequest->hasFile('bu_image')){
-            $img = $burequest->file('bu_image');
-            $imgName = time() . "." . $img->getClientOriginalName();
-            Image::make($img)->save(public_path('/bu_image/'. $imgName));
-            $image = $bu['bu_image'] = $imgName;
-        }
+            $fileName = uploadImage($burequest->file('bu_image')); // uploadImage function in helpers.php
+            $image = $bu['bu_image'] = $fileName;
+            $data = [
+                'bu_name'       =>  $burequest  ->  bu_name,
+                'bu_price'      =>  $burequest  ->  bu_price,
+                'bu_rent'       =>  $burequest  ->  bu_rent,
+                'bu_square'     =>  $burequest  ->  bu_square,
+                'bu_type'       =>  $burequest  ->  bu_type,
+                'bu_small_des'  =>  $burequest  ->  bu_small_des,
+                'bu_meta'       =>  $burequest  ->  bu_meta,
+                'bu_langtuide'  =>  $burequest  -> bu_langtuide,
+                'bu_latitude'   =>  $burequest  ->  bu_latitude,
+                'bu_large_dis'  =>  $burequest  ->  bu_large_dis,
+                'bu_status'     =>  $burequest  ->  bu_status,
+                'user_id'       => Auth::id(),
+                'bu_rooms'      => $burequest   -> bu_rooms,
+                'bu_place'      => $burequest   ->bu_place,
+                'bu_image'      => $image
+            ];
+        }else{
 
         $data = [
             'bu_name'       =>  $burequest  ->  bu_name,
@@ -43,9 +58,9 @@ class buController extends Controller
             'bu_status'     =>  $burequest  ->  bu_status,
             'user_id'       => Auth::id(),
             'bu_rooms'      => $burequest   -> bu_rooms,
-            'bu_place'      => $burequest   ->bu_place,
-            'bu_image'      => $image
+            'bu_place'      => $burequest   ->bu_place
         ];
+        }
         $bu->create($data);
         if($bu){
             alert()->success('Build Created', 'Successfully');
@@ -65,10 +80,8 @@ class buController extends Controller
         $updatedbu->fill(array_except($request->all(),['bu_image']))->save();
 
         if($request->hasFile('bu_image')){
-            $img = $request->file('bu_image');
-            $imgName = time() . "." . $img->getClientOriginalName();
-            Image::make($img)->save(public_path('/bu_image/'. $imgName));
-            $updatedbu->fill(['bu_image' => $imgName])->save();
+            $fileName = uploadImage($request->file('bu_image')); // uploadImage function in helpers.php
+            $updatedbu->fill(['bu_image' => $fileName])->save();
         }
 
         if($updatedbu){
@@ -188,5 +201,10 @@ class buController extends Controller
         $same_rent = bu::where('bu_rent' ,$buInfo->bu_rent)->orderBy(DB::raw('RAND()'))->take(2)->get();
         $same_type = bu::where('bu_type' ,$buInfo->bu_type)->orderBy(DB::raw('RAND()'))->take(2)->get();
         return view('admin.website.bu.buInfo', compact('buInfo', 'same_rent', 'same_type'));
+    }
+
+    public function getAjaxInfo(Request $request, bu $bu)
+    {
+        return $bu->find($request->id)->toJson();
     }
 }
