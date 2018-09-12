@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                                <button type="submit" class="btn banner_btn pull-right" id="btnContactUs">
                                     Send Message</button>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
             </div>
             <div class="col-md-4">
                 <form>
-                    <legend><span class="fa fa-outdoor"></span> Our office</legend>
+                    <legend><span class="fa fa-outdent"></span> Our office</legend>
                     <address>
                         Address : {{ getSetting('address') }}
                         <br>
