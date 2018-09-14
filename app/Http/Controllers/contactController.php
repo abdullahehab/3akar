@@ -43,6 +43,7 @@ class contactController extends Controller
     public function edit($id)
     {
         $contactUs = CONTACTUS::find($id);
+        $contactUs->fill(['view' => 1])->save(); // To specify old message or Read Message
         return view('admin.contact.edit', compact('contactUs'));
     }
 
