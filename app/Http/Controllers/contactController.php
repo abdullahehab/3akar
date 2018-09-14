@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CONTACTUS;
 use App\Http\Requests\ContactRequest;
+use Illuminate\Support\Facades\Redirect;
 use Yajra\DataTables\DataTables;
 
 class contactController extends Controller
@@ -48,13 +49,25 @@ class contactController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $contactUpdated = CONTACTUS::find($id);
+        $contactUpdated->fill($request->all())->save();
+
+        if($contactUpdated){
+            alert()->success('Message Updated', 'Successfully');
+            return Redirect::back();
+        }
+
     }
 
 
     public function destroy($id)
     {
-        //
+        $contactDeleted = CONTACTUS::find($id)->delete();
+        if($contactDeleted){
+            alert()->success('Message Deleted','Successfully');
+            return redirect('adminpanel/contactUs');
+        }
+
     }
 
     public function anyData()
