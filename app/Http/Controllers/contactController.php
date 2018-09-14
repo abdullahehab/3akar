@@ -85,7 +85,7 @@ class contactController extends Controller
             })
 
             ->editColumn('view', function ($model) {
-                return $model->view == 0 ? 'New Message' : 'Read message';
+                return $model->view == 0 ? 'New Message' : 'Old message';
 
             })
 
