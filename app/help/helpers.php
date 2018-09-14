@@ -110,3 +110,9 @@ function contact(){
     ];
     return $array;
 }
+
+function unReadMessage(){
+    return \App\CONTACTUS::where('view', 0)->get();
+}
+
+
