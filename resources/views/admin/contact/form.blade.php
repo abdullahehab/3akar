@@ -1,5 +1,11 @@
 <div class="form-group{{ $errors->has('contact_name') ? ' has-error' : '' }}">
+
+    <div class="col-lg-2" style="margin-bottom:3px">
+        Name
+    </div>
+
     <div class="col-md-10">
+
         {!! Form::text('contact_name' , null , ['class' => "form-control"]) !!}
 
         @if ($errors->has('contact_name'))
@@ -9,15 +15,17 @@
         @endif
     </div>
 
-    <div class="col-lg-2">
-        Name
-    </div>
+
 
 </div>
 <div class="clearfix"></div>
 <br>
 
 <div class="form-group{{ $errors->has('contact_email') ? ' has-error' : '' }}">
+
+    <div class="col-lg-2" style="margin-bottom:3px">
+        Email
+    </div>
     <div class="col-md-10">
         {!! Form::text('contact_email' , null , ['class' => "form-control"]) !!}
 
@@ -28,35 +36,20 @@
         @endif
     </div>
 
-    <div class="col-lg-2">
-        Email
-    </div>
+
 
 </div>
 <div class="clearfix"></div>
 <br>
 
-<div class="form-group{{ $errors->has('contact_subject') ? ' has-error' : '' }}">
-    <div class="col-md-10">
-        {!! Form::text('contact_subject' , null , ['class' => "form-control"]) !!}
-
-        @if ($errors->has('contact_subject'))
-            <span class="help-block">
-                <strong>{{ $errors->first('contact_subject') }}</strong>
-            </span>
-        @endif
-    </div>
-
-    <div class="col-lg-2">
-        Subject
-    </div>
-</div>
-<div class="clearfix"></div>
-<br>
 
 <div class="form-group{{ $errors->has('contact_message') ? ' has-error' : '' }}">
+
+    <div class="col-lg-2" style="margin-bottom:3px">
+        Message
+    </div>
     <div class="col-md-10">
-        {!! Form::text('contact_message' , null , ['class' => "form-control"]) !!}
+        {!! Form::textarea('contact_message' , null , ['class' => "form-control"]) !!}
 
         @if ($errors->has('contact_message'))
             <span class="help-block">
@@ -65,14 +58,15 @@
         @endif
     </div>
 
-    <div class="col-lg-2">
-        Message
-    </div>
+
 </div>
 <div class="clearfix"></div>
 <br>
 
 <div class="form-group{{ $errors->has('contact_type') ? ' has-error' : '' }}">
+    <div class="col-lg-2" style="margin-bottom:3px">
+        Contact Type
+    </div>
     <div class="col-md-10">
         {!! Form::select('contact_type' , contact() , null , ['class' => "form-control"]) !!}
 
@@ -83,9 +77,7 @@
         @endif
     </div>
 
-    <div class="col-lg-2">
-        Contact Type
-    </div>
+
 
 </div>
 <div class="clearfix"></div>
