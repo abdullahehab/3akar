@@ -25,15 +25,11 @@ Route::group(['middleware' => ['auth']] , function() {
 
 Route::group(['middleware' => ['web','admin']] , function(){
 
-
-
-
-        # admin panel prefix
-        Route::prefix('adminpanel')->group(function (){
+    # adminpanel prefix
+    Route::prefix('adminpanel')->group(function (){
 
         #ajax data table route of users
         Route::get('/users/data', ['as' => 'adminpanel.users.data' , 'uses' => 'userController@anyData']);
-
 
         #admin panel route
         Route::get('','adminController@index');
@@ -43,7 +39,6 @@ Route::group(['middleware' => ['web','admin']] , function(){
         Route::resource('/users','userController');
         Route::post('/users/changepassword', 'userController@updatePassword');
 
-
         #site setting route
         Route::get('/sitesetting', 'siteSettingController@index');
         Route::post('/sitesetting', 'siteSettingController@store');
@@ -52,14 +47,18 @@ Route::group(['middleware' => ['web','admin']] , function(){
         #ajax data table route of bu
         Route::get('/bu/data', ['as' => 'adminpanel.bu.data' , 'uses' => 'buController@anyData']); // leh da msh b3d el resource ely t7to
         Route::resource('/bu','buController');
-        Route::get('bu/{id}/delete', 'buController@destroy'); // w da b2a b el resouce
-    });
+        Route::get('contact/{id}/delete', 'buController@destroy'); // w da b2a b el resouce
+
+        #Contact US
+        Route::get('/contactUs/data', ['as' => 'adminpanel.contactUs.data' , 'uses' => 'contactController@anyData']);
+        Route::resource('/contactUs','contactController');
+
+        });
 
 
 
 });
 
-Route::get('contactUs', 'HomeController@contact');
 
 
 
@@ -80,4 +79,7 @@ Route::get('ajax/bu/information', 'buController@getAjaxInfo');
 
 
 
+/*Contact view and send message*/
+Route::get('contactUs', 'HomeController@contact');
+Route::post('contactUs', 'contactController@store');
 
