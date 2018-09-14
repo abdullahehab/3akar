@@ -51,6 +51,7 @@ Route::group(['middleware' => ['web','admin']] , function(){
 
         #Contact US
         Route::get('/contactUs/data', ['as' => 'adminpanel.contactUs.data' , 'uses' => 'contactController@anyData']);
+        Route::get('contactUs/{id}/delete', 'contactController@destroy'); // w da b2a b el resouce
         Route::resource('/contactUs','contactController');
 
         });
