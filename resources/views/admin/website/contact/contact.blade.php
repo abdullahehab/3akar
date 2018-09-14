@@ -39,7 +39,7 @@
                                 <div class="form-group">
                                     <label for="name">
                                         Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                                    <input type="text" name="contact_name" class="form-control" id="name" placeholder="Enter name" required="required" />
                                 </div>
                                 <div class="form-group">
                                     <label for="email">
@@ -47,12 +47,12 @@
                                     <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter email" value="{{ \Illuminate\Support\Facades\Auth::user() ? Auth::user()->email : '' }}" required="required" /></div>
+                                        <input type="email" name="contact_email" class="form-control" id="email" placeholder="Enter email" value="{{ \Illuminate\Support\Facades\Auth::user() ? Auth::user()->email : '' }}" required="required" /></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                         Subject</label>
-                                    <select id="subject" name="subject" class="form-control" required="required">
+                                    <select id="subject" name="contact_type" class="form-control" required="required">
                                         @foreach(contact() as $key => $value)
                                             <option value="{{ $key }}" >{{ $value }}</option>
                                         @endforeach
@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                     <label for="name">
                                         Message</label>
-                                    <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                    <textarea name="contact_message" id="message" class="form-control" rows="9" cols="25" required="required"
                                               placeholder="Message"></textarea>
                                 </div>
                             </div>
