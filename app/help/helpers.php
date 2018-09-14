@@ -115,4 +115,6 @@ function unReadMessage(){
     return \App\CONTACTUS::where('view', 0)->get();
 }
 
-
+function countUnReadMessage(){
+    return \App\CONTACTUS::where('view', 0)->count();
+}
