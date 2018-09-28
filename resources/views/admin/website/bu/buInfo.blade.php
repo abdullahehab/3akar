@@ -69,17 +69,19 @@
                         <a href="{{ url('/search/?bu_type='.$buInfo->bu_type) }}" class="btn btn-default">
                             Type Of Build : {{ buType()[$buInfo->bu_type] }}
                         </a>
+
                     </div>
+
                     <hr>
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b98cd8b8338e2d1"></script>
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_inline_share_toolbox"></div>
 
                     <img src="/bu_image/{{$buInfo->bu_image}}" class="img-responsive" alt="">
                     <p>
                         {!!  nl2br($buInfo->bu_large_dis) !!}
                     </p>
-
-
-
-
 
             </div>
 

@@ -64,58 +64,41 @@
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="fa fa-comments-o"></i>
-                    <span class="badge badge-danger navbar-badge">3</span>
+                    <span class="badge badge-danger navbar-badge">
+                        {{ countUnReadMessage() }}
+                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="#" class="dropdown-item">
+                    <span class="dropdown-item dropdown-header">You Have {{ countUnReadMessage() }} Messages Un Read</span>
+                    @if(countUnReadMessage() != 0)
+                        @foreach(unReadMessage() as $keyMessage => $message)
+                    <a href="{{ url('adminpanel/contactUs/'.$message->id.'/edit') }}" class="dropdown-item">
                         <!-- Message Start -->
-                        <div class="media">
-                            <img src="../../../../admin/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Brad Diesel
-                                    <span class="float-right text-sm text-danger"><i class="fa fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">Call me whenever you can...</p>
-                                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
+                            <div class="media">
+                                <img src="/userImage/{{Auth::user()->avatar}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                    <div class="media-body">
+                                        <h3 class="dropdown-item-title">
+                                                {{ $message->contact_name }}
+                                                <span class="float-right text-sm text-danger"><i class="fa fa-star"></i></span>
+                                        </h3>
+                                        <p class="text-sm">{{ str_limit($message->contact_message, 20) }}</p>
+                                        <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i>{{ $message->created_at }}</p>
+                                    </div>
                             </div>
-                        </div>
                         <!-- Message End -->
                     </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="../../../../admin/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    John Pierce
-                                    <span class="float-right text-sm text-muted"><i class="fa fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">I got your message bro</p>
-                                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
+                        @endforeach
+                    @else
+                        <a href="" class="dropdown-item">
+                            <div class="media">
+                                No Message To Show
                             </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
+                        </a>
+                    @endif
+
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="../../../../admin/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Nora Silvester
-                                    <span class="float-right text-sm text-warning"><i class="fa fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">The subject goes here</p>
-                                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+
+                    <a href="{{ url('adminpanel/contactUs') }}" class="dropdown-item dropdown-footer">See All Messages</a>
                 </div>
             </li>
             <!-- Notifications Dropdown Menu -->

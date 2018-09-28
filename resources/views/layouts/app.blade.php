@@ -81,7 +81,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="{{ url('contactUs') }}">Contact Us</a></li>
                     <!-- Authentication Links -->
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>

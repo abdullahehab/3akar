@@ -100,3 +100,21 @@ function uploadImage($request, $path = '/bu_image/'){
     Image::make($request)->resize('500','362')->save(public_path($path. $imgName));
     return $imgName;
 }
+
+function contact(){
+    $array = [
+        "1" =>  "Impress",
+        "2" =>  "Problem",
+        "3" =>  'Suggestions',
+        "4" =>  "Enquiry"
+    ];
+    return $array;
+}
+
+function unReadMessage(){
+    return \App\CONTACTUS::where('view', 0)->get();
+}
+
+function countUnReadMessage(){
+    return \App\CONTACTUS::where('view', 0)->count();
+}
