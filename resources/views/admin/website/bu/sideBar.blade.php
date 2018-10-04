@@ -1,4 +1,37 @@
 <div class="col-md-3">
+    <!-- user side bar -->
+@if(Auth::user())
+    <div class="profile-sidebar">
+        <h2 style="margin-left: 20px">
+            User Options
+        </h2>
+        <div class="profile-usermenu">
+            <ul class="nav">
+                <li>
+                    <a href="{{url('showAllBuilding')}}">
+                        <i class="glyphicon glyphicon-home"></i>
+                        Edit User Info </a>
+                </li>
+                <li>
+                    <a href="{{url('usr/buildShow')}}">
+                        <i class="glyphicon glyphicon-user"></i>
+                        My Builds </a>
+                </li>
+                <li>
+                    <a href="{{url('user/create/build')}}">
+                        <i class="glyphicon glyphicon-ok"></i>
+                        Add New Build
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- END MENU -->
+    </div>
+@endif
+
+<br>
+
+
     <div class="profile-sidebar">
         <h2 style="margin-left: 20px">
             Advanced Search
@@ -97,33 +130,5 @@
 
     <br>
 
-<!-- user side bar -->
-@if(Auth::user())
-    <div class="profile-sidebar">
-        <h2 style="margin-left: 20px">
-            User Options
-        </h2>
-        <div class="profile-usermenu">
-            <ul class="nav">
-                <li>
-                    <a href="{{url('showAllBuilding')}}">
-                        <i class="glyphicon glyphicon-home"></i>
-                        Edit User Info </a>
-                </li>
-                <li>
-                    <a href="{{url('usr/buildShow')}}">
-                        <i class="glyphicon glyphicon-user"></i>
-                        My Builds </a>
-                </li>
-                <li>
-                    <a href="{{url('user/create/build')}}">
-                        <i class="glyphicon glyphicon-ok"></i>
-                        Add New Build
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- END MENU -->
-    </div>
-@endif   
+
 </div>
