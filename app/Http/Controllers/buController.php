@@ -266,4 +266,10 @@ class buController extends Controller
 
        
     }
+
+    public function showUserBuilding(){
+        $user = Auth::user();
+        $bu = bu::where('user_id', $user->id)->paginate(15);
+        return view('admin.website.userBu.showUserBu', compact('bu', 'user'));
+    }
 }
