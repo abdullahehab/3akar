@@ -116,7 +116,7 @@
                         My Builds </a>
                 </li>
                 <li>
-                    <a href="{{url('forRentOrSale/0')}}">
+                    <a href="{{url('user/create/build')}}">
                         <i class="glyphicon glyphicon-ok"></i>
                         Add New Build
                     </a>
