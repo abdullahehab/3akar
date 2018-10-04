@@ -111,7 +111,7 @@
                         Edit User Info </a>
                 </li>
                 <li>
-                    <a href="{{url('forRentOrSale/1')}}">
+                    <a href="{{url('usr/buildShow')}}">
                         <i class="glyphicon glyphicon-user"></i>
                         My Builds </a>
                 </li>
