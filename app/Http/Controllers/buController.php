@@ -198,6 +198,11 @@ class buController extends Controller
 
     public function showSingle($id){
         $buInfo = bu::findOrFail($id);
+
+        if($buInfo->bu_status == 0){ // check if build available or Not
+            return view('admin.website.bu.noPermition', compact('buInfo'));
+        }
+
         $same_rent = bu::where('bu_rent' ,$buInfo->bu_rent)->orderBy(DB::raw('RAND()'))->take(2)->get();
         $same_type = bu::where('bu_type' ,$buInfo->bu_type)->orderBy(DB::raw('RAND()'))->take(2)->get();
         return view('admin.website.bu.buInfo', compact('buInfo', 'same_rent', 'same_type'));
@@ -206,5 +211,70 @@ class buController extends Controller
     public function getAjaxInfo(Request $request, bu $bu)
     {
         return $bu->find($request->id)->toJson();
+    }
+
+    public function userAddBuild(){
+        return view('admin.website.userBu.userAdd');
+    }
+
+    public function userStore(buRequest $burequest, bu $bu){
+
+
+        if($burequest->hasFile('bu_image')){
+            $fileName = uploadImage($burequest->file('bu_image')); // uploadImage function in helpers.php
+            $image = $bu['bu_image'] = $fileName;
+            $user = Auth::user() ? Auth::id() : null ;
+            $data = [
+                'bu_name'       =>  $burequest  ->  bu_name,
+                'bu_price'      =>  $burequest  ->  bu_price,
+                'bu_rent'       =>  $burequest  ->  bu_rent,
+                'bu_square'     =>  $burequest  ->  bu_square,
+                'bu_type'       =>  $burequest  ->  bu_type,
+                'bu_small_des'  =>  strip_tags(str_limit($buRequest->bu_large_dis, 160)),
+                'bu_meta'       =>  $burequest  ->  bu_meta,
+                'bu_langtuide'  =>  $burequest  -> bu_langtuide,
+                'bu_latitude'   =>  $burequest  ->  bu_latitude,
+                'bu_large_dis'  =>  $burequest  ->  bu_large_dis,
+                'bu_status'     =>  $burequest  ->  bu_status,
+                'user_id'       => $user,
+                'bu_rooms'      => $burequest   -> bu_rooms,
+                'bu_place'      => $burequest   ->bu_place,
+                'bu_image'      => $image
+            ];
+        }else{
+
+
+        $user = Auth::user() ? Auth::id() : null ;
+        $data = [
+            'bu_name'       =>  $burequest  ->  bu_name,
+            'bu_price'      =>  $burequest  ->  bu_price,
+            'bu_rent'       =>  $burequest  ->  bu_rent,
+            'bu_square'     =>  $burequest  ->  bu_square,
+            'bu_type'       =>  $burequest  ->  bu_type,
+            'bu_small_des'  =>  strip_tags(str_limit($burequest->bu_large_dis, 160)),
+            'bu_meta'       =>  $burequest  ->  bu_meta,
+            'bu_langtuide'  =>  $burequest  -> bu_langtuide,
+            'bu_latitude'   =>  $burequest  ->  bu_latitude,
+            'bu_large_dis'  =>  $burequest  ->  bu_large_dis,
+            'bu_status'     =>  $burequest  ->  bu_status,
+            'user_id'       => $user,
+            'bu_rooms'      => $burequest   -> bu_rooms,
+            'bu_place'      => $burequest   ->bu_place
+        ];
+        }
+        $bu->create($data);
+        if($bu){
+            alert()->success('Build Created', 'Successfully');
+            return view('admin.website.userBu.done');
+        }
+
+
+       
+    }
+
+    public function showUserBuilding(){
+        $user = Auth::user();
+        $bu = bu::where('user_id', $user->id)->paginate(15);
+        return view('admin.website.userBu.showUserBu', compact('bu', 'user'));
     }
 }

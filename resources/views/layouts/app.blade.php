@@ -43,9 +43,9 @@
                 <ul class="nav" id="nav">
                     <li class="current"><a href="{{url('home')}}">Home</a></li>
                     {{-- Call isUser Directive to check user is login --}}
-                    @isUser
+        
                     <li><a href="{{url('showAllBuilding')}}">All Buildings</a></li>
-                    @endif
+                    
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>

@@ -62,7 +62,7 @@
                         </div>
                 {!! form::close() !!}
             </div>
-                <a class="banner_btn" href="{{ url('/showAllBuilding') }}">More</a>
+                <a class="banner_btn" href="{{ url('/user/create/build') }}">Add New Build For Free</a>
         </div>
     </div>
 
