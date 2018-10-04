@@ -2,7 +2,7 @@
 
 @section('title')
 
-    {{ $user->name }}}'s Buildings
+    {{ $user->name }}'s Buildings
 
 @endsection
 
@@ -42,7 +42,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="{{ url('/showAllBuilding') }}">All Building</a></li>
-                    <li class="active"><a href="#">{{ $user->name }}}'s Buildings</a></li>
+                    <li class="active"><a href="#">{{ $user->name }}'s Buildings</a></li>
           
                 </ol>
 
