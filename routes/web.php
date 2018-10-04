@@ -60,6 +60,10 @@ Route::group(['middleware' => ['web','admin']] , function(){
 
 });
 
+/* User Add New Build For Free */
+Route::get('/user/create/build', 'buController@userAddBuild');
+Route::post('/user/create/build', 'buController@userStore');
+
 
 
 
